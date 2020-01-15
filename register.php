@@ -27,7 +27,6 @@
 */
 ?>
 
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -38,27 +37,27 @@
 </head>
 <body>
   <h1 style="font-family: Calibri">Inscription à la FAQ</h1>
-  <p style ="color :grey">Veuillez fournir vos coordonnées</p> 
+  <p style ="color :grey">Veuillez fournir vos coordonnées</p>
 
+    <!-- Formulaire -->
     <form method="post" action="inscription.php">
-      Pseudo:<br>
+      Pseudo: *<br>
       <input type="text" name="Nom" required="required">
       <br>
-      Mot de passe:<br>
+      Mot de passe: *<br>
       <input type="password" name="password" required="required">
       <br>
-      Mail:<br> 
+      Mail: *<br> 
       <input type="email" name="email" required="required">
       <br>
-      Ligue:<br>
+      Ligue: <br>
       <select name="nom" size="1">
         <option>Ligue de football
         <option>Ligue de Rugby
-        <option>Ligue de Osef
       </select>
     </form>
 
-    <!--Saut de ligne bouton enregistrer -->
+    <!-- Saut de ligne bouton enregistrer -->
     <form>
       <br>
       <input type="submit" name="envoi" value="Enregistrer"/>
