@@ -35,7 +35,7 @@ CREATE TABLE `faq` (
   `dat_reponse` datetime NOT NULL,
   `dat_question` datetime NOT NULL,
   `id_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -46,7 +46,7 @@ CREATE TABLE `faq` (
 CREATE TABLE `ligue` (
   `id_ligue` int(11) NOT NULL,
   `lib_ligue` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -61,7 +61,7 @@ CREATE TABLE `user` (
   `mail` varchar(64) NOT NULL,
   `id_ligue` int(11) NOT NULL,
   `id_usertype` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -73,7 +73,7 @@ CREATE TABLE `user_type` (
   `id_usertype` int(11) NOT NULL,
   `lib_usertype` varchar(64) NOT NULL,
   `description` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Index pour les tables déchargées
