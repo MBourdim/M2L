@@ -31,7 +31,7 @@ if(isset($_POST['formconnexion'])) {
    <body>
       <div align="center">
          <h2>Connexion</h2>
-         <br /><br />
+         <br/><br />
          <form method="POST" action="">
             <input type="text" name="pseudoconnect" placeholder="Pseudo" />
             <input type="password" name="mdpconnect" placeholder="Mot de passe" />
