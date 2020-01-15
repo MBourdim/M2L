@@ -1,5 +1,5 @@
 <?php
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=m2l', 'root', '');
+$bdd = new PDO('mysql:host=localhost;dbname=m2l', 'root', '');
 
 if(isset($_POST['forminscription'])) {
    $pseudo = htmlspecialchars($_POST['pseudo']);
