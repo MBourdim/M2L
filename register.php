@@ -7,7 +7,9 @@
   <title>Inscription</title>
 </head>
 <body>
-  <h1>Inscription</h1>
+  <h1>Inscription à la FAQ</h1>
+
+  <p>Veuillez fournir vos coordonnées 
 
     <form method="post" action="inscription.php">
       <p>Pseudo</p>
