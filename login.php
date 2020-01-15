@@ -1,23 +1,22 @@
 <?php
 session_start();
 
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=m2l', 'root', '');
 
 if(isset($_POST['formconnexion'])) {
-   $mailconnect = htmlspecialchars($_POST['mailconnect']);
+   $pseudoconnect = htmlspecialchars($_POST['pseudoconnect']);
    $mdpconnect = sha1($_POST['mdpconnect']);
-   if(!empty($mailconnect) AND !empty($mdpconnect)) {
-      $requser = $bdd->prepare("SELECT * FROM membres WHERE mail = ? AND motdepasse = ?");
-      $requser->execute(array($mailconnect, $mdpconnect));
+   if(!empty($pseudoconnect) AND !empty($mdpconnect)) {
+      $requser = $bdd->prepare("SELECT * FROM membres WHERE pseudo = ? AND motdepasse = ?");
+      $requser->execute(array($pseudoconnect, $mdpconnect));
       $userexist = $requser->rowCount();
       if($userexist == 1) {
          $userinfo = $requser->fetch();
-         $_SESSION['id'] = $userinfo['id'];
+         $_SESSION['id_user'] = $userinfo['id_user'];
          $_SESSION['pseudo'] = $userinfo['pseudo'];
-         $_SESSION['mail'] = $userinfo['mail'];
-         header("Location: faq.php?id=".$_SESSION['id']);
+         header("Location: faq.php?id_user=".$_SESSION['id_user']);
       } else {
-         $erreur = "Mauvais mail ou mot de passe !";
+         $erreur = "Mauvais pseudo ou mot de passe !";
       }
    } else {
       $erreur = "Tous les champs doivent être complétés !";
@@ -26,7 +25,7 @@ if(isset($_POST['formconnexion'])) {
 ?>
 <html>
    <head>
-      <title>TUTO PHP</title>
+      <title>Login</title>
       <meta charset="utf-8">
    </head>
    <body>
@@ -34,7 +33,7 @@ if(isset($_POST['formconnexion'])) {
          <h2>Connexion</h2>
          <br /><br />
          <form method="POST" action="">
-            <input type="email" name="mailconnect" placeholder="Mail" />
+            <input type="text" name="pseudoconnect" placeholder="Pseudo" />
             <input type="password" name="mdpconnect" placeholder="Mot de passe" />
             <br /><br />
             <input type="submit" name="formconnexion" value="Se connecter !" />
