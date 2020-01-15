@@ -12,12 +12,12 @@ if(isset($_POST['forminscription'])) {
       if($pseudolength <= 255) {
          if($mail == $mail2) {
             if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-               $reqmail = $bdd->prepare("SELECT * FROM membres WHERE mail = ?");
+               $reqmail = $bdd->prepare("SELECT * FROM user WHERE mail = ?");
                $reqmail->execute(array($mail));
                $mailexist = $reqmail->rowCount();
                if($mailexist == 0) {
                   if($mdp == $mdp2) {
-                     $insertmbr = $bdd->prepare("INSERT INTO membres(pseudo, mail, motdepasse) VALUES(?, ?, ?)");
+                     $insertmbr = $bdd->prepare("INSERT INTO user(pseudo, mail, mdp) VALUES(?, ?, ?)");
                      $insertmbr->execute(array($pseudo, $mail, $mdp));
                      $erreur = "Votre compte a bien été créé ! <a href=\"login.php\">Me connecter</a>";
                   } else {
