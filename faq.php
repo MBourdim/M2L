@@ -1,17 +1,17 @@
 <?php
 session_start();
 
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=m2l', 'root', '');
 
-if(isset($_GET['id']) AND $_GET['id'] > 0) {
-   $getid = intval($_GET['id']);
-   $requser = $bdd->prepare('SELECT * FROM membres WHERE id = ?');
-   $requser->execute(array($getid));
+if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
+   $getid_user = intval($_GET['id_user']);
+   $requser = $bdd->prepare('SELECT * FROM user WHERE id_user = ?');
+   $requser->execute(array($getid_user));
    $userinfo = $requser->fetch();
 ?>
 <html>
    <head>
-      <title>TUTO PHP</title>
+      <title>Faq</title>
       <meta charset="utf-8">
    </head>
    <body>
@@ -23,7 +23,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
          Mail = <?php echo $userinfo['mail']; ?>
          <br />
          <?php
-         if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
+         if(isset($_SESSION['id_user']) AND $userinfo['id_user'] == $_SESSION['id_user']) {
          ?>
          <br />
          <a href="editionprofil.php">Editer mon profil</a>
