@@ -91,19 +91,17 @@ nav > ul li:hover .sous{
   .inner-div {
       text-align:justify;
   }
-  h2
+  h1
   {
       text-align: center;
       margin-top: 0px;
   }
   p
   {
-      font-size: 20px;
+    text-align: center;
+      font-size: 22px;
   }
   IMG.bat {
-      display: block;
-      margin-left: auto;
-      margin-right: auto
       padding: 5px;
       width: 500px; 
   } 
