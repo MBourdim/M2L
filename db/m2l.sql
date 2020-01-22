@@ -151,6 +151,25 @@ ALTER TABLE `user`
   ADD CONSTRAINT `user_ligue_FK` FOREIGN KEY (`id_ligue`) REFERENCES `ligue` (`id_ligue`),
   ADD CONSTRAINT `user_user_type0_FK` FOREIGN KEY (`id_usertype`) REFERENCES `user_type` (`id_usertype`);
 COMMIT;
+--
+-- Insert into ligue
+--
+
+INSERT INTO `ligue` (`id_ligue`, `lib_ligue`) 
+VALUES 
+('1', 'Ligue de football'), 
+('2', 'Ligue de basket'), ('3', 'Ligue de volley'), 
+('4', 'Ligue de handball'),
+('5','Toutes les ligues');
+
+--
+-- Insert into user types
+--
+INSERT INTO `user_type` (`id_usertype`, `lib_usertype`, `description`)
+VALUES 
+('1', 'utilisateur', 'Administrateur de ligue '), 
+('2', 'admin', 'Administrateur de ligue '), 
+('3', 'superadmin', 'Administrateur de toutes les ligues ');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
