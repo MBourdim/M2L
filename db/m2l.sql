@@ -21,8 +21,10 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `m2l`
 --
-
+CREATE DATABASE IF NOT EXISTS `m2l` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `m2l`;
 -- --------------------------------------------------------
+
 
 --
 -- Structure de la table `faq`
