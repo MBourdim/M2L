@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Services</title>
     <link rel="stylesheet" type="text/css" href="css/services.css">
-    <link rel="shortcut icon" type="image/x-icon" href="..\rs\logosite.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="img\logosite.png" />
 </head>
 <body>
-<img class="displayed" alt="M2L" src="..\rs\m2l.png" title="M2L">       
+<img class="displayed" alt="M2L" src="img\m2l.png" title="M2L">       
 <hr color="black">
 <nav>
   <ul>
     <li><a href="index.php">Accueil</a></li>
     <li><a href="services.php">Services</a></li>
-    <li><a href="faq.php">Ligues</a></li>
+    <li><a href="football.php">Ligues</a></li>
     <li><a href="bureaux.php">Bureaux</a></li>
     <li><a href="contact.php">Contact</a></li>
   </ul>

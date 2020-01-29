@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ligue de Football</title>
     <link rel="stylesheet" type="text/css" href="liguedefoot.css">
-    <link rel="shortcut icon" type="image/x-icon" href="../rs/m2lfoot.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/m2lfoot.png" />
 </head>
 <body>
-<img class="displayed" alt="M2L Ligue de football" src="..\rs\m2lfoot.png" title="M2L">       
+<img class="displayed" alt="M2L Ligue de football" src="img\m2lfoot.png" title="M2L">       
 <hr color="black">
 <nav>
   <ul>
-    <li><a href="#">Accueil</a></li>
-    <li><a href="services/services.html">Services</a></li>
-    <li><a href="ligues/ligue.html">Ligues</a></li>
-    <li><a href="bureaux\bureaux.html">Bureaux</a></li>
-    <li><a href="contact/contact.html">Contact</a></li>
+    <li><a href="index.php">Accueil</a></li>
+    <li><a href="services.php">Services</a></li>
+    <li><a href="faq.php">Ligues</a></li>
+    <li><a href="bureaux.php">Bureaux</a></li>
+    <li><a href="contact.php">Contact</a></li>
   </ul>
 </nav>
 <hr color="black">

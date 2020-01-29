@@ -12,12 +12,12 @@
 <img class="displayed" alt="M2L" src="img\m2l.png" title="M2L">       
 <hr color="black">
 <nav>
-  <ul>
-    <li><a href="..\pagep.html">Accueil</a></li>
-    <li><a href="..\services\services.html">Services</a></li>
-    <li><a href="..\ligues\liguedefoot.html">Ligues</a></li>
-    <li><a href="..\bureaux\bureaux.html">Bureaux</a></li>
-    <li><a href="#">Contact</a></li>
+<ul>
+    <li><a href="index.php">Accueil</a></li>
+    <li><a href="services.php">Services</a></li>
+    <li><a href="football.php">Ligues</a></li>
+    <li><a href="bureaux.php">Bureaux</a></li>
+    <li><a href="contact.php">Contact</a></li>
   </ul>
 </nav>
 <hr color="black">
@@ -28,7 +28,7 @@
 <h2>PRENDRE CONTACT AVEC NOUS</h2>
 <br>
 <br>
-<span class="imageDroite"><img src="..\rs\snowcontact.png" align="right" height="600px"/></span>
+<span class="imageDroite"><img src="img\snowcontact.png" align="right" height="600px"/></span>
 <h3>Maison des ligues de de Lorainne</h3>
 <hr width="39%" color="black">
 <p>13 rue Jean Moulin - BP 70001</p>

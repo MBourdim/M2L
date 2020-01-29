@@ -39,7 +39,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FAQ</title>
-    <link rel="stylesheet" type="text/css" href="FAQ.css">
+    <link rel="stylesheet" type="text/css" href="css/FAQ.css">
     <link rel="shortcut icon" type="image/x-icon" href="img/m2lfoot.png" />
 </head>
 <body>
@@ -64,7 +64,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
         <div class="vertical-menu">
                 <a href="#" class="active">Accueil de la FAQ</a>
                 <a href="index.php">Maison des ligues</a>
-                <a href="foot.php">Ligue de Football</a>
+                <a href="football.php">Ligue de Football</a>
                 <a href="list.php">Liste des question</a>
                 <a href="add.php">Ajouter une question</a>
                 <a href="login.php">Connexion</a>
