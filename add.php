@@ -1,5 +1,5 @@
 <?php 
-include 'D:\xampp\htdocs\projects\M2L-1\menu.php'
+include 'menu.php'
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,8 @@ include 'D:\xampp\htdocs\projects\M2L-1\menu.php'
     <title>Ajout FAQ</title>
   </head>
   <body>
-    <h2>Ajouter une question à la FAQ</h2>
+    <center>
+<h2>Ajouter une question à la FAQ</h2>
     <p style ="color :grey">Veuillez saisir votre question</p>
 
 
@@ -23,6 +24,8 @@ include 'D:\xampp\htdocs\projects\M2L-1\menu.php'
       <div class="bouton">
         <button type="submit">Enregistrer</button>
       </div>
-    </form>
+    </form>      
+    </center>
+    
   </body>
 </html>
