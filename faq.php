@@ -47,7 +47,9 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
 <body>
 <div class="outer-div">
     <div class="inner-div">
-    <center><img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png"></center>
+    <center>
+    <img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png">
+   </center>
 </div>
 <br>
 <br>
@@ -67,11 +69,11 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
                 <a href="faq.php"class="active">Accueil de la FAQ</a>
                 <a href="index.php">Maison des ligues</a>
                 <a href="football.php">Ligue de Football</a>
-                <a href="list.php">Liste des questions</a>
                 <a href="add.php">Ajouter une question</a>
+                <a href="list.php">Liste des questions</a>
+                <a href="register.php">Inscription</a>
                 <a href="login.php">Connexion</a>
                 <a href="logout.php">Déconnexion</a>
-                <a href="register.php">Inscription</a>
         </div>
         <br>
         <br>
