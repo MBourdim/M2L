@@ -23,7 +23,7 @@ if(isset($_POST['formconnexion'])) {
    }
 }
 ?>
-<<<<<<< HEAD
+
 
 <?php
 
@@ -38,14 +38,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
 <html>
    <head>
       <title>Faq</title>
-=======
-<?php 
-include 'D:\xampp\htdocs\projects\M2L-1\menu.php'
-?>
-<html>
-   <head>
-      <title>Connexion</title>
->>>>>>> 337e1b405468c303f9aa7d5cf352c90df9a26469
+
       <meta charset="utf-8">
    </head>
    <body>
