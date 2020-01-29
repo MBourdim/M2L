@@ -30,9 +30,12 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
          <a href="logout.php">Se déconnecter</a>
          <?php
          }
+      }
          ?>
       </div>
-      <!DOCTYPE html>
+</body>
+</html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -58,11 +61,11 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
         <br>
         <h3>Veuillez vous inscrire pour continuer</h3>
         <br>
-        <span class="imageDroite"><img src="footanim.gif" align="right" height="500px"/></span>
+        <span class="imageDroite"><img src="img/footanim.gif" align="right" height="500px"/></span>
         <br>
         <br>
         <div class="vertical-menu">
-                <a href="#" class="active">Accueil de la FAQ</a>
+                <a href="faq.php" class="active">Accueil de la FAQ</a>
                 <a href="index.php">Maison des ligues</a>
                 <a href="football.php">Ligue de Football</a>
                 <a href="list.php">Liste des question</a>
@@ -80,8 +83,3 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
 
 </body>
 </html>
-   </body>
-</html>
-<?php   
-}
-?>

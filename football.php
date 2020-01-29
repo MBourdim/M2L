@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ligue de Football</title>
-    <link rel="stylesheet" type="text/css" href="liguedefoot.css">
+    <link rel="stylesheet" type="text/css" href="css/liguedefoot.css">
     <link rel="shortcut icon" type="image/x-icon" href="img/m2lfoot.png" />
 </head>
 <body>
@@ -28,7 +28,7 @@
 </div>
 <center><p>Cliquez sur l'image ci-dessous afin d'acceder à la FAQ</p></center>
 <br>
-<a href="FAQ/FAQ.html">
-<center><img class="bat" src="..\rs\FAQ.png"></center>
+<a href="faq.php">
+<center><img class="bat" src="img\FAQ.png"></center>
 </a>
 </body>
