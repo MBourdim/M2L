@@ -35,9 +35,13 @@ body {
     
 }
 .vertical-menu {
-    width: 250px; 
+    width: 250px;
+    height: 20px; 
   }
-  
+.center-menu {
+  height: 90px;
+  width: 1200px;
+}
   .vertical-menu a {
     background-color: #eee; 
     color: black; 
