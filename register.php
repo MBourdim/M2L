@@ -1,5 +1,5 @@
 <?php /* Script de connexion à la BDD M2L */
-$bdd = new PDO('mysql:host=localhost;dbname=m2l', 'root', '');    /*Connexion entre PHP et MySQL */
+$bdd = new PDO('mysql:host=localhost;dbname=m2l', 'root', '');    /* Connexion entre PHP et MySQL */
 
 if(isset($_POST['forminscription'])) {
    $pseudo = htmlspecialchars($_POST['pseudo']);

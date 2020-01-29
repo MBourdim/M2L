@@ -1,7 +1,7 @@
 <?php
-session_start();
+session_start();     /* Script de connexion à la BDD M2L */
 
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=m2l', 'root', '');
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=m2l', 'root', '');    /* Connexion entre PHP et MySQL */
 
 if(isset($_POST['formconnexion'])) {
    $pseudoconnect = htmlspecialchars($_POST['pseudoconnect']);
