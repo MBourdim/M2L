@@ -43,7 +43,7 @@ if(isset($_POST['forminscription'])) {
       <meta charset="utf-8">
    </head>
    <body>
-      
+    <div align="center">
          <h2>Inscription</h2>
          <br /><br />
          <form method="POST" action="">
