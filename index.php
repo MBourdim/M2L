@@ -12,12 +12,12 @@
 <img class="displayed" alt="M2L" src="img\m2l.png" title="M2L">       
 <hr color="black">
 <nav>
-  <ul>
+<ul>
     <li><a href="index.php">Accueil</a></li>
-    <li><a href="services/services.html">Services</a></li>
-    <li><a href="faq.php">Faq</a></li>
-    <li><a href="bureaux/bureaux.html">Bureaux</a></li>
-    <li><a href="contact/contact.html">Contact</a></li>
+    <li><a href="services.php">Services</a></li>
+    <li><a href="faq.php">Ligues</a></li>
+    <li><a href="bureaux.php">Bureaux</a></li>
+    <li><a href="contact.php">Contact</a></li>
   </ul>
 </nav>
 <hr color="black">
