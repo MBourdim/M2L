@@ -35,7 +35,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
 </body>
 </html>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
