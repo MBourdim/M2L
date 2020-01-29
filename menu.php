@@ -3,16 +3,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>FAQ</title>
+    <title></title>
     <link rel="stylesheet" type="text/css" href="css/FAQ.css">
     <link rel="shortcut icon" type="image/x-icon" href="img/m2lfoot.png" />
 </head>
 <body>
-<div class="outer-div">
-    <div class="inner-div">
-
-</div>
-
   <div class="outer-div2">
         <div class="inner-div2">
         <div class="vertical-menu">
@@ -25,11 +20,7 @@
                 <a href="logout.php">Déconnexion</a>
                 <a href="register.php">Inscription</a>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
         </div>
-</div>
+  </div>
 </body>
 </html>

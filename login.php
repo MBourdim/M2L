@@ -28,7 +28,7 @@ include 'D:\xampp\htdocs\projects\M2L-1\menu.php'
 ?>
 <html>
    <head>
-      <title>Login</title>
+      <title>Connexion</title>
       <meta charset="utf-8">
    </head>
    <body>
