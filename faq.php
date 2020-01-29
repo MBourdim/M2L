@@ -27,7 +27,6 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
          ?>
          <br />
          <a href="editionprofil.php">Editer mon profil</a>
-         <a href="logout.php">Se déconnecter</a>
          <?php
          }
       }
@@ -65,7 +64,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
         <br>
         <br>
         <div class="vertical-menu">
-                <a href="faq.php" class="active">Accueil de la FAQ</a>
+                <a href="faq.php"class="active">Accueil de la FAQ</a>
                 <a href="index.php">Maison des ligues</a>
                 <a href="football.php">Ligue de Football</a>
                 <a href="list.php">Liste des questions</a>
