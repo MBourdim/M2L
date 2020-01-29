@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=m2l', 'root', '');
 
@@ -55,25 +55,15 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
 <br>
 <div class="outer-div2">
         <div class="inner-div2">
-        <br>
-        <br>
-        <h1>Bienvenue sur le site de la FAQ</h1>
-        <br>
-        <br>
-        <h3>Veuillez vous inscrire pour continuer</h3>
-        <br>
-        <span class="imageDroite"><img src="img/footanim.gif" align="right" height="500px"/></span>
-        <br>
-        <br>
-        <div class="vertical-menu">
-                <a href="faq.php"class="active">Accueil de la FAQ</a>
-                <a href="index.php">Maison des ligues</a>
-                <a href="football.php">Ligue de Football</a>
-                <a href="add.php">Ajouter une question</a>
-                <a href="list.php">Liste des questions</a>
-                <a href="register.php">Inscription</a>
-                <a href="login.php">Connexion</a>
-                <a href="logout.php">Déconnexion</a>
+        <div class="vertical-menu"> 
+                <a href="faq.php" class="active">Accueil de la FAQ</a>    <!-- Lien vers faq.php -->
+                <a href="index.php">Maison des ligues</a>   <!-- Lien vers index.php -->
+                <a href="football.php">Ligue de Football</a>    <!-- Lien vers football.php -->
+                <a href="list.php">Liste des questions</a>    <!-- Lien vers list.php -->
+                <a href="add.php">Ajouter une question</a>    <!-- Lien vers add.php -->
+                <a href="login.php">Connexion</a>   <!-- Lien vers login.php -->
+                <a href="logout.php">Déconnexion</a>    <!-- Lien vers logout.php -->
+                <a href="register.php">Inscription</a>    <!-- Lien vers register.php -->
         </div>
         <br>
         <br>

@@ -1,7 +1,10 @@
 <?php
+include ("menu.php");
+?>
+<?php
 session_start();
 
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=m2l', 'root', '');
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=m2l', 'root', '');    /* Connexion entre PHP et MySQL */
 
 if(isset($_POST['formconnexion'])) {
    $pseudoconnect = htmlspecialchars($_POST['pseudoconnect']);
@@ -31,7 +34,7 @@ if(isset($_POST['formconnexion'])) {
    <body>
       <div align="center">
          <h2>Connexion</h2>
-         <br/><br />
+         <br/><br/>
          <form method="POST" action="">
             <input type="text" name="pseudoconnect" placeholder="Pseudo" />
             <input type="password" name="mdpconnect" placeholder="Mot de passe" />
@@ -44,5 +47,6 @@ if(isset($_POST['formconnexion'])) {
          }
          ?>
       </div>
+   
    </body>
 </html>

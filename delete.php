@@ -11,6 +11,10 @@ $db_selected=mysql_select_db('m2l',$link);
     }
 ?>
 
+<?php 
+include 'D:\xampp\htdocs\projects\M2L-1\menu.php'
+?>
+
 
 <!DOCTYPE html>
 <html lang="fr">

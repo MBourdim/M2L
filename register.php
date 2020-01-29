@@ -1,4 +1,7 @@
 <?php
+include("menu.php");
+?>
+<?php
 $bdd = new PDO('mysql:host=localhost;dbname=m2l', 'root', '');
 
 if(isset($_POST['forminscription'])) {
@@ -6,7 +9,6 @@ if(isset($_POST['forminscription'])) {
    $mail = htmlspecialchars($_POST['mail']);
    $mail2 = htmlspecialchars($_POST['mail2']);
    $mdp = sha1($_POST['mdp']);
-   $foot = htmlspecialchars($_POST['foot']);
    if(!empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp'])) {
       $pseudolength = strlen($pseudo);
       if($pseudolength <= 255) {
@@ -64,6 +66,7 @@ if(isset($_POST['forminscription'])) {
                 <input type="password" placeholder="Votre mot de passe" id="mdp" name="mdp" />
             <br><br>
             <b for="ligue">Ligue</b>
+            <br>
             <select name="Ligue" size="1">
             <option type="text" id="foot" name="foot" value="<?php if(isset($foot)) { echo $foot; } ?>">Ligue de Football</option>
             <option type="text" id="rugby" name="rugby" value="<?php if(isset($rugby)) { echo $rugby; } ?>">Ligue de Rugby</option>

@@ -1,4 +1,7 @@
 <?php
+include("menu.php");
+?>
+<?php
 session_start();
 $_SESSION = array();
 session_destroy();
@@ -12,12 +15,10 @@ session_destroy();
     <title>Deconnexion</title>
 </head>
 <div align="center">
-<h2>Vous avez été deconnecté</h2>
-<p><a href="faq.php">Retourner a la FAQ</a></p>    
+<h2>Vous avez été deconnecté</h2>   
 </div>
 
 <body>
-    
 </body>
 </html>
 
