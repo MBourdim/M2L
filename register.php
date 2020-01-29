@@ -1,149 +1,73 @@
-<?php /* Script de connexion à la BDD M2L */
-$bdd = new PDO('mysql:host=localhost;dbname=m2l', 'root', '');    /*Connexion entre PHP et MySQL */
+<?php
+include("menu.php");
+?>
+<?php
+$bdd = new PDO('mysql:host=localhost;dbname=m2l', 'root', '');
 
 if(isset($_POST['forminscription'])) {
    $pseudo = htmlspecialchars($_POST['pseudo']);
    $mail = htmlspecialchars($_POST['mail']);
-   $mail2 = htmlspecialchars($_POST['mail2']);  
-   $mdp = sha1($_POST['mdp']);      /*Hachage du mot de passe avec SHA1*/
-   $foot = htmlspecialchars($_POST['foot']);
+   $mail2 = htmlspecialchars($_POST['mail2']);
+   $mdp = sha1($_POST['mdp']);
    if(!empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp'])) {
       $pseudolength = strlen($pseudo);
-      if($pseudolength <= 255) {    /*Condition > le pseudo doit être inférieur ou égal à 255 caractères */
-         if($mail == $mail2) {      /*Vérification de la confirmation du mail (mail 1 = mail 2) */
+      if($pseudolength <= 255) {
+         if($mail == $mail2) {
             if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                $reqmail = $bdd->prepare("SELECT * FROM user WHERE mail = ?");
                $reqmail->execute(array($mail));
                $mailexist = $reqmail->rowCount();
                if($mailexist == 0) {
-                  $insertmbr = $bdd->prepare("INSERT INTO user(pseudo, mail, mdp) VALUES(?, ?, ?)");  /*Requête SQL insertion des données remplies dans la table USER */
+                  $insertmbr = $bdd->prepare("INSERT INTO user(pseudo, mail, mdp) VALUES(?, ?, ?)");
                   $insertmbr->execute(array($pseudo, $mail, $mdp));
-                  $erreur = "Votre compte a bien été créé ! <a href=\"login.php\">Me connecter</a>";     /*Renvoi sur la page login après inscription */
+                  $erreur = "Votre compte a bien été créé ! <a href=\"login.php\">Me connecter</a>";
                   
                } else {
-                  $erreur = "Adresse mail déjà utilisée !";    /*Erreur adresse mail*/
+                  $erreur = "Adresse mail déjà utilisée !";
                }
             } else {
-               $erreur = "Votre adresse mail n'est pas valide !";    /*Erreur adresse mail*/
+               $erreur = "Votre adresse mail n'est pas valide !";
             }
          } else {
-            $erreur = "Vos adresses mail ne correspondent pas !";    /*Erreur adresse mail*/
+            $erreur = "Vos adresses mail ne correspondent pas !";
          }
       } else {
-         $erreur = "Votre pseudo ne doit pas dépasser 255 caractères !";   /*Erreur pseudo*/
+         $erreur = "Votre pseudo ne doit pas dépasser 255 caractères !";
       }
    } else {
-      $erreur = "Tous les champs doivent être complétés !";    /*Non remplissage des champs obligatoires*/
+      $erreur = "Tous les champs doivent être complétés !";
    }
 }
 ?>
-<title>Inscription</title>
-  <meta charset="utf-8">
-</head>
-<body>
-    
-   </body>
-</html>
-<?php
-session_start();
-
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=m2l', 'root', '');
-
-if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
-   $getid_user = intval($_GET['id_user']);
-   $requser = $bdd->prepare('SELECT * FROM user WHERE id_user = ?');
-   $requser->execute(array($getid_user));
-   $userinfo = $requser->fetch();
-?>
 <html>
    <head>
-      <title>Faq</title>
+      <title></title>
       <meta charset="utf-8">
    </head>
    <body>
-      <div align="center">
-         <h2>Profil de <?php echo $userinfo['pseudo']; ?></h2>
-         <br /><br />
-         Pseudo = <?php echo $userinfo['pseudo']; ?>
-         <br />
-         Mail = <?php echo $userinfo['mail']; ?>
-         <br />
-         <?php
-         if(isset($_SESSION['id_user']) AND $userinfo['id_user'] == $_SESSION['id_user']) {
-         ?>
-         <br />
-         <a href="editionprofil.php">Editer mon profil</a>
-         <?php
-         }
-      }
-         ?>
-      </div>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>FAQ</title>
-    <link rel="stylesheet" type="text/css" href="css/FAQ.css">
-    <link rel="shortcut icon" type="image/x-icon" href="img/m2lfoot.png" />
-</head>
-<body>
-<div class="outer-div">
-    <div class="inner-div">
-    <center>
-    <img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png">
-   </center>
-</div>
-<br>
-<br>
-<div class="outer-div2">
-        <div class="inner-div2">
-        <br>
-        <br>
-        <h1>Bienvenue sur le site de la FAQ</h1>
-        <br>
-        <br>
-        <h3>Veuillez vous inscrire pour continuer</h3>
-        <br>
-        <span class="imageDroite"><img src="img/footanim.gif" align="right" height="500px"/></span>
-        <br>
-        <br>
-        <div class="vertical-menu">
-                <a href="faq.php"class="active">Accueil de la FAQ</a>
-                <a href="index.php">Maison des ligues</a>
-                <a href="football.php">Ligue de Football</a>
-                <a href="add.php">Ajouter une question</a>
-                <a href="list.php">Liste des questions</a>
-                <a href="register.php">Inscription</a>
-                <a href="login.php">Connexion</a>
-                <a href="logout.php">Déconnexion</a>
-        </div>
-        <div class="center-menu">
-        <div align="center">
+    <div align="center">
          <h2>Inscription</h2>
          <br /><br />
-         <form method="POST" action="">      <!-- Formulaire HTML -->
-            <b>Pseudo</b>     <!-- Champ insertion pseudo -->
+         <form method="POST" action="">
+            <b>Pseudo</b>
             <br>
                <input type="text" placeholder="Votre pseudo" id="pseudo" name="pseudo" value="<?php if(isset($pseudo)) { echo $pseudo; } ?>" />
             <br><br>
-            <b for="mail">Mail</b>     <!-- Champ insertion mail -->
+            <b for="mail">Mail</b>
             <br>
                 <input type="email" placeholder="Votre mail" id="mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>" />
             <br><br>
-            <b for="mail2">Confirmation du mail</b>      <!-- Champ confirmation du mail -->
+            <b for="mail2">Confirmation du mail</b>
             <br>
                 <input type="email" placeholder="Confirmez votre mail" id="mail2" name="mail2" value="<?php if(isset($mail2)) { echo $mail2; } ?>" />
             <br><br>
-            <b for="mdp">Mot de passe</b>    <!-- Champ insertion mot de passe -->
+            <b for="mdp">Mot de passe</b>
             <br>
                 <input type="password" placeholder="Votre mot de passe" id="mdp" name="mdp" />
             <br><br>
-            <b for="ligue">Ligue</b>   <!-- Selection de la ligue -->
-            <select name="Ligue" size="1">      <!-- Liste déroulante pour sélectionner la ligue -->
+            <b for="ligue">Ligue</b>
+            <br>
+            <select name="Ligue" size="1">
             <option type="text" id="foot" name="foot" value="<?php if(isset($foot)) { echo $foot; } ?>">Ligue de Football</option>
             <option type="text" id="rugby" name="rugby" value="<?php if(isset($rugby)) { echo $rugby; } ?>">Ligue de Rugby</option>
             <br>     
@@ -151,18 +75,9 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
          </form>
          <?php
          if(isset($erreur)) {
-            echo '<font color="red">'.$erreur."</font>";    /*Erreur en cas de non-remplissage des champs obligatoires */
+            echo '<font color="red">'.$erreur."</font>";
          }
          ?>
-      </div>  
-        </div>
-        
-        <br>
-        <br>
-        <br>
-        <br>
-        </div>
-</div>
-
-</body>
+      </div>
+   </body>
 </html>
