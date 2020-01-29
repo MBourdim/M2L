@@ -69,6 +69,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
                 <a href="football.php">Ligue de Football</a>
                 <a href="list.php">Liste des questions</a>
                 <a href="add.php">Ajouter une question</a>
+                
                 <a href="login.php">Connexion</a>
                 <a href="profil.php">Profil</a>
                 <a href="logout.php">Déconnexion</a>
