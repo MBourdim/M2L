@@ -5,7 +5,7 @@ mysql_select_db ('m2l', $base) ;
 ?>
 
 <?php 
-include 'D:\xampp\htdocs\projects\M2L-1\menu.php'
+include 'menu.php'
 ?>
 
 

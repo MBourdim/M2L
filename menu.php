@@ -1,6 +1,5 @@
 <?php
 
-
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=m2l', 'root', '');
 
 if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
@@ -35,7 +34,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
 </body>
 </html>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,23 +46,31 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
 <body>
 <div class="outer-div">
     <div class="inner-div">
-    <center>
-    <img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png">
-   </center>
+    <center><img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png"></center>
 </div>
 <br>
 <br>
 <div class="outer-div2">
         <div class="inner-div2">
-        <div class="vertical-menu"> 
-                <a href="faq.php" class="active">Accueil de la FAQ</a>    <!-- Lien vers faq.php -->
-                <a href="index.php">Maison des ligues</a>   <!-- Lien vers index.php -->
-                <a href="football.php">Ligue de Football</a>    <!-- Lien vers football.php -->
-                <a href="list.php">Liste des questions</a>    <!-- Lien vers list.php -->
-                <a href="add.php">Ajouter une question</a>    <!-- Lien vers add.php -->
-                <a href="login.php">Connexion</a>   <!-- Lien vers login.php -->
-                <a href="logout.php">Déconnexion</a>    <!-- Lien vers logout.php -->
-                <a href="register.php">Inscription</a>    <!-- Lien vers register.php -->
+        <br>
+        <br>
+        <h1>Bienvenue sur le site de la FAQ</h1>
+        <br>
+        <br>
+        <h3>Veuillez vous inscrire pour continuer</h3>
+        <br>
+        <span class="imageDroite"><img src="img/footanim.gif" align="right" height="500px"/></span>
+        <br>
+        <br>
+        <div class="vertical-menu">
+                <a href="faq.php"class="active">Accueil de la FAQ</a>
+                <a href="index.php">Maison des ligues</a>
+                <a href="football.php">Ligue de Football</a>
+                <a href="list.php">Liste des questions</a>
+                <a href="add.php">Ajouter une question</a>
+                <a href="login.php">Connexion</a>
+                <a href="logout.php">Déconnexion</a>
+                <a href="register.php">Inscription</a>
         </div>
         <br>
         <br>
