@@ -1,0 +1,12 @@
+table{
+  border: thin solid #000000;
+  width: 50%;
+}
+td,th{
+  border: thin solid #000000;
+  width: 50%;
+}
+th{
+  background-color: #a1a0a0;
+  
+}
