@@ -1,7 +1,14 @@
 <?php
 // on se connecte à notre base
-$base = localhost ('serveur', 'login', 'pass');
-mysql_select_db ('m2l', $base) ;
+$link=mysql_connect('localhost','root','');
+
+if (!$link){
+    die('Not connected :'.mysql_error());
+}
+$db_selected=mysql_select_db('m2l',$link);
+    if(!$db_selected){
+        die('Base inaccessible: '.mysql_error());
+    }
 ?>
 
 <?php 
