@@ -37,6 +37,9 @@ if(isset($_POST['forminscription'])) {
    }
 }
 ?>
+<?php 
+include 'D:\xampp\htdocs\projects\M2L-1\menu.php'
+?>
 <html>
    <head>
       <title>Inscription</title>

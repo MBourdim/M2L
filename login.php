@@ -23,6 +23,9 @@ if(isset($_POST['formconnexion'])) {
    }
 }
 ?>
+<?php 
+include 'D:\xampp\htdocs\projects\M2L-1\menu.php'
+?>
 <html>
    <head>
       <title>Login</title>
