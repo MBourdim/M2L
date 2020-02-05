@@ -10,7 +10,7 @@
 <body>
 <div class="outer-div">
     <div class="inner-div">
-    <center><img class="imagecentre1" width="300" height="150" alt="imgc1" src="img/FAQfoot.png"></center>
+    <center><img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png"></center>
 
 <ul>
   <li><a href="faq.php">Accueil de la FAQ</a></li>
