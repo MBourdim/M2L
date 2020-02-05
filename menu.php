@@ -1,7 +1,5 @@
 <?php
 
-include('./fonction.inc.php');
-$dbh = connexion();
 
 if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
    $getid_user = intval($_GET['id_user']);
@@ -68,7 +66,6 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
                 <a href="index.php">Maison des ligues</a>
                 <a href="football.php">Ligue de Football</a>
                 <a href="list.php">Liste des questions</a>
-                <a href="add.php">Ajouter une question</a>
                 <a href="login.php">Connexion</a>
                 <a href="logout.php">Déconnexion</a>
                 <a href="register.php">Inscription</a>
