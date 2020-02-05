@@ -1,3 +1,8 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  font-family: Avenir, calibri;
+}
 table{
   border: thin solid #000000;
   width: 50%;
