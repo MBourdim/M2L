@@ -28,10 +28,10 @@
     padding-left: 90px
 }
 body {
-    background-image: url('/img/bgfoot.jpg');
+    background-image: url("../img/bgfoot.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100% 100%;   
+    background-size: cover;   
 }
 .vertical-menu {
     width: 250px;
