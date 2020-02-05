@@ -1,9 +1,9 @@
 <?php
 include("menu.php");
+include('./fonction.inc.php');
+$dbh = connexion(); // Connexion à la base de données
 ?>
 <?php
-$bdd = new PDO('mysql:host=localhost;dbname=m2l', 'root', '');
-
 if(isset($_POST['forminscription'])) {
    $pseudo = htmlspecialchars($_POST['pseudo']);
    $mail = htmlspecialchars($_POST['mail']);

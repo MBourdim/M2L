@@ -1,6 +1,6 @@
 <?php
 //connexion a la base de donnée 
-include ("menu.php");
+
 include('fonction.inc.php');
 $dbh = connexion();
 
