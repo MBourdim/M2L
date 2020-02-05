@@ -1,7 +1,5 @@
 <?php
 
-include('./fonction.inc.php');
-$dbh = connexion();
 
 if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
    $getid_user = intval($_GET['id_user']);
