@@ -9,6 +9,7 @@ if(isset($_POST['forminscription'])) {
    $mail = htmlspecialchars($_POST['mail']);
    $mail2 = htmlspecialchars($_POST['mail2']);
    $mdp = sha1($_POST['mdp']);
+
    if(!empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp'])) {
       $pseudolength = strlen($pseudo);
       if($pseudolength <= 255) {
@@ -68,8 +69,8 @@ if(isset($_POST['forminscription'])) {
             <b for="ligue">Ligue</b>
             <br>
             <select name="Ligue" size="1">
-            <option type="text" id="foot" name="foot" value="<?php if(isset($foot)) { echo $foot; } ?>">Ligue de Football</option>
-            <option type="text" id="rugby" name="rugby" value="<?php if(isset($rugby)) { echo $rugby; } ?>">Ligue de Rugby</option>
+            <option type="text" id="foot" name="foot" value="1"<?php if(isset($foot)) { echo $foot; } ?> >Ligue de Football</option>
+            <option type="text" id="rugby" name="rugby" value="2"<?php if(isset($rugby)) { echo $rugby; } ?> >Ligue de Rugby</option>
             <br>     
             <input type="submit" name="forminscription" value="Je m'inscris" />
          </form>

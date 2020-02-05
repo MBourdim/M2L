@@ -34,6 +34,8 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
       </div>
 </body>
 </html>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +43,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FAQ</title>
-    <link rel="stylesheet" type="text/css" href="css/FAQ.css">
+    <link rel="stylesheet" href="css/FAQ.css">
     <link rel="shortcut icon" type="image/x-icon" href="img/m2lfoot.png" />
 </head>
 <body>
@@ -79,6 +81,5 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
         <br>
         </div>
 </div>
-
 </body>
 </html>
