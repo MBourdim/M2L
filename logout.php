@@ -1,5 +1,7 @@
 <?php
 include("menu.php");
+include('./fonction.inc.php');
+$dbh = connexion();
 ?>
 <?php
 session_start();

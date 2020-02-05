@@ -1,7 +1,7 @@
 <?php
 session_start();
-
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=m2l', 'root', '');
+include('./fonction.inc.php');
+$dbh = connexion();
 
 if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
    $getid_user = intval($_GET['id_user']);

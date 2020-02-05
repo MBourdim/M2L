@@ -1,6 +1,6 @@
 <?php
 // on se connecte à notre base
-$link=mysql_connect('localhost','root','');
+
 
 if (!$link){
     die('Not connected :'.mysql_error());

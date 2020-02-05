@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=m2l', 'root', '');
 
 if(isset($_SESSION['id_user'])) {
    $requser = $bdd->prepare("SELECT * FROM user WHERE id_user = ?");
