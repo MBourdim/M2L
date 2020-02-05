@@ -38,7 +38,7 @@
         <td>sdfdu31</td>
         <td>Qui aime Minecraft ?</td>
         <td>Moi j'adore</td>
-        <td><img src="" alt=""></td>
+        <td><a href="delete.php"><img src="img/cancel.png" alt="cancel.png"></a><a href="edit.php"><img src="img/pencil.png" alt="pencil.png"></a> </td>
     </table>
 </center>
 

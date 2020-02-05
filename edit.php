@@ -10,18 +10,14 @@
 <body>
 <div class="outer-div">
     <div class="inner-div">
-    <center><img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png"></center>
-</div>
-<br><br>
+    <center><img class="imagecentre1" width="300" height="150" alt="imgc1" src="img/FAQfoot.png"></center>
+
 <ul>
-    <li><a href="faq.php"class="active">Accueil de la FAQ</a></li>
-    <li><a href="index.php">Maison des ligues</a></li>
-    <li><a href="football.php">Ligue de Football</a></li>
-    <li><a href="list.php">Liste des questions</a></li>
-    <li><a href="add.php">Ajouter une question</a></li>
-    <li><a href="login.php">Connexion</a></li>
-    <li><a href="logout.php">Déconnexion</a></li>
-    <li><a href="register.php">Inscription</a></li>
+  <li><a href="faq.php">Accueil de la FAQ</a></li>
+  <li><a href="list.php">Liste des questions</a></li>
+  <li><a href="add.php">Ajouter une question</a></li>
+  <li><a href="edit.php"class="active">Répondre à une question</a></li>
+  <li><a href="delete.php">Supprimer une question</a></li>
 </ul>
 <br>
 <center>
