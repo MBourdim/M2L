@@ -1,6 +1,5 @@
 <?php
 //connexion a la base de donnée 
-include ("menu.php");
 include('fonction.inc.php');
 $dbh = connexion();
 
@@ -17,8 +16,10 @@ $dbh = connexion();
 <body>
 <div class="outer-div">
     <div class="inner-div">
-    <center><img class="imagecentre1" width="300" height="150" alt="imgc1" src="img/FAQfoot.png"></center>
-
+    <center><img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png"></center>
+  </div>
+</div>
+<br>
 <ul>
   <li><a href="faq.php">Accueil de la FAQ</a></li>
   <li><a href="list.php">Liste des questions</a></li>
@@ -26,6 +27,7 @@ $dbh = connexion();
   <li><a href="edit.php">Répondre à une question</a></li>
   <li><a href="delete.php"class="active">Supprimer une question</a></li>
 </ul>
+<br><br>
 <br><br>
 <center>
 <h1>Ceci est la page supprimer</h1>
