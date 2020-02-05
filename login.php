@@ -1,10 +1,9 @@
 <?php
 include ("menu.php");
+include('./fonction.inc.php');
+$dbh = connexion();
 ?>
 <?php
-session_start();
-
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=m2l', 'root', '');    /* Connexion entre PHP et MySQL */
 
 if(isset($_POST['formconnexion'])) {
    $pseudoconnect = htmlspecialchars($_POST['pseudoconnect']);
