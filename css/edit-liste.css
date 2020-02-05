@@ -3,18 +3,25 @@
   padding: 0px;
   font-family: Avenir, calibri;
 }
-table{
-  border: thin solid #000000;
-  width: 50%;
-}
-td,th{
-  border: thin solid #000000;
-  width: 50%;
-}
+table {
+  border-collapse:collapse;
+  widows:90%;
+  }
+ th, td {
+  border:1px solid black;
+  width:20%;
+  }
+ td {
+  text-align:center;
+  }
+ caption {
+  font-weight:bold
+  }
 th{
   background-color: #a1a0a0;
-  
+
 }
+
 
 ul {
   list-style-type: none;
