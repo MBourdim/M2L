@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Repondre</title>
-    <link rel="stylesheet" type="text/css" href="css/repondre.css">
+    <link rel="stylesheet" type="text/css" href="css/tableaux.css">
 </head>
 <body>
 <div class="outer-div">
     <div class="inner-div">
-    <center><img class="imagecentre1" width="300" height="150" alt="imgc1" src="img/FAQfoot.png"></center>
-
+    <center><img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png"></center>
+  </div>
+</div>
+<br>
 <ul>
   <li><a href="faq.php">Accueil de la FAQ</a></li>
   <li><a href="list.php">Liste des questions</a></li>
