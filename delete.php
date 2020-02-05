@@ -1,3 +1,9 @@
+<?php
+//connexion a la base de donnée 
+include ("menu.php");
+include('./fonction.inc.php');
+$dbh = connexion();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
