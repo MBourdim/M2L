@@ -4,25 +4,17 @@ include('./fonction.inc.php');
 $dbh = connexion();
 ?>
 <?php
-
-if(isset($_POST['formconnexion'])) {
-   $pseudoconnect = htmlspecialchars($_POST['pseudoconnect']);
-   $mdpconnect = sha1($_POST['mdpconnect']);
-   if(!empty($pseudoconnect) AND !empty($mdpconnect)) {
-      $requser = $bdd->prepare("SELECT * FROM user WHERE pseudo = ? AND mdp = ?");
-      $requser->execute(array($pseudoconnect, $mdpconnect));
-      $userexist = $requser->rowCount();
-      if($userexist == 1) {
-         $userinfo = $requser->fetch();
-         $_SESSION['id_user'] = $userinfo['id_user'];
-         $_SESSION['pseudo'] = $userinfo['pseudo'];
-         header("Location: faq.php?id_user=".$_SESSION['id_user']);
-      } else {
-         $erreur = "Mauvais pseudo ou mot de passe !";
-      }
-   } else {
-      $erreur = "Tous les champs doivent être complétés !";
-   }
+$pseudo=isset($_POST['pseudo']) ? $_POST['pseudo'] : '';
+$password=isset($_POST['password']) ? $_POST['password'] : '';
+$submit=isset($_POST['submit']);
+$sql = "select * from user";
+try {
+$sth = $dbh->prepare($sql);
+$sth->execute(array(':pseudo' => $pseudo));
+$sth->execute(array(':pseudo' => $pseudo));
+$rows = $sth->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $ex) {
+die("Erreur lors de la requête SQL : " . $ex->getMessage());
 }
 ?>
 <html>
@@ -62,16 +54,13 @@ if(isset($_POST['formconnexion'])) {
       <div align="center">
          <h2>Connexion</h2>
          <br/><br/>
-         <form method="POST" action="">
-            <input type="text" name="pseudoconnect" placeholder="Pseudo" />
-            <input type="password" name="mdpconnect" placeholder="Mot de passe" />
-            <br /><br />
-            <input type="submit" name="formconnexion" value="Se connecter !" />
+         <form method="post" action="login.php" id="form1">
+            <p>Pseudo <br> <input type="text" name="pseudo" placeholder="Pseudo"/></p>
+            <p>Mot de passe <br><input type="password"name="password" placeholder="Mot de passe"/></p>
+            <br/><br/>
+            <input type="submit" name="submit" value="Se connecter !" />
          </form>
          <?php
-         if(isset($erreur)) {
-            echo '<font color="red">'.$erreur."</font>";
-         }
          ?>
       </div>
       </div>
