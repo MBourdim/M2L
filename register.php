@@ -8,14 +8,12 @@ $dbh = connexion(); // Connexion à la base de données
 
 if(isset($_POST['submit'])){
    if(!empty($_POST['pseudo']) && !empty($_POST['mail']) && !empty($_POST['password'])){
-      $pseudolength = strlen($pseudo);
-      if($pseudolength <= 255) {
+
    $password = sha1($_POST['password']);
    $insertsql = $dbh->prepare('INSERT INTO user(pseudo,mdp,mail,id_ligue) VALUES (?,?,?,?)');
    $insertsql->execute(array($_POST['pseudo'],$password,$_POST['mail'],$_POST['ligue']));
 
 
-}
    }else{
       $erreur = "Tous les champs doivent être complétés !";
       echo "salut compe";

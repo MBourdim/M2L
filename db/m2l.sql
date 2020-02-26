@@ -1,178 +1,60 @@
--- phpMyAdmin SQL Dump
--- version 4.9.0.1
--- https://www.phpmyadmin.net/
---
--- Hôte : 127.0.0.1
--- Généré le :  mer. 15 jan. 2020 à 10:44
--- Version du serveur :  10.4.6-MariaDB
--- Version de PHP :  7.3.9
+CREATE DATABASE m2l CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
+USE m2l;
 
+CREATE TABLE ligue
+(
+  id_ligue bigint(11) AUTO_INCREMENT,
+  lib_ligue varchar(50),
+  CONSTRAINT PK_ligue PRIMARY KEY (id_ligue)
+)ENGINE=InnoDB;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+CREATE TABLE usertype
+(
+  id_usertype bigint(11) AUTO_INCREMENT,
+  lib_usertype varchar(50),
+  description varchar(50),
+  CONSTRAINT PK_usertype PRIMARY KEY (id_usertype)
+)ENGINE=InnoDB;
 
---
--- Base de données :  `m2l`
---
-CREATE DATABASE IF NOT EXISTS `m2l` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `m2l`;
--- --------------------------------------------------------
+CREATE TABLE `user`
+(
+  id_user bigint(11) AUTO_INCREMENT,
+  pseudo varchar(50) NOT NULL UNIQUE,
+  mdp varchar(100) NOT NULL,
+  mail varchar(50) NOT NULL UNIQUE,
+  id_usertype bigint(11),
+  id_ligue bigint(11),  
+  CONSTRAINT PK_user PRIMARY KEY (id_user),
+  CONSTRAINT FK_user_id_usertype FOREIGN KEY (id_usertype)
+  REFERENCES usertype (id_usertype),
+  CONSTRAINT FK_user_id_ligue FOREIGN KEY (id_ligue)
+  REFERENCES ligue (id_ligue)
+)ENGINE=InnoDB;
 
+CREATE TABLE faq
+(
+  id_faq bigint(11) AUTO_INCREMENT,
+  question text,
+  reponse text,
+  dat_question datetime,
+  dat_reponse datetime,
+  id_user bigint(11),  
+  CONSTRAINT PK_faq PRIMARY KEY (id_faq),
+  CONSTRAINT FK_faq_id_user FOREIGN KEY (id_user)
+  REFERENCES user (id_user)
+)ENGINE=InnoDB;
 
---
--- Structure de la table `faq`
---
+INSERT INTO ligue 
+VALUES
+ (1,"Ligue de football"),
+ (2,"Ligue de basket"),
+ (3,"Ligue de volley"), 
+(4,"Ligue de handball"), 
+(5,"Toutes les ligues");
 
-CREATE TABLE `faq` (
-  `id_faq` int(11) NOT NULL,
-  `auteur` varchar(10) NOT NULL,
-  `reponse` varchar(120) NOT NULL,
-  `dat_reponse` datetime NOT NULL,
-  `dat_question` datetime NOT NULL,
-  `id_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `ligue`
---
-
-CREATE TABLE `ligue` (
-  `id_ligue` int(11) NOT NULL,
-  `lib_ligue` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `user`
---
-
-CREATE TABLE `user` (
-  `id_user` int(11) NOT NULL,
-  `pseudo` varchar(20) NOT NULL,
-  `mdp` varchar(255) NOT NULL,
-  `mail` varchar(64) NOT NULL,
-  `id_ligue` int(11) NOT NULL,
-  `id_usertype` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `user_type`
---
-
-CREATE TABLE `user_type` (
-  `id_usertype` int(11) NOT NULL,
-  `lib_usertype` varchar(64) NOT NULL,
-  `description` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `faq`
---
-ALTER TABLE `faq`
-  ADD PRIMARY KEY (`id_faq`),
-  ADD KEY `faq_user_FK` (`id_user`);
-
---
--- Index pour la table `ligue`
---
-ALTER TABLE `ligue`
-  ADD PRIMARY KEY (`id_ligue`);
-
---
--- Index pour la table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`),
-  ADD KEY `user_ligue_FK` (`id_ligue`),
-  ADD KEY `user_user_type0_FK` (`id_usertype`);
-
---
--- Index pour la table `user_type`
---
-ALTER TABLE `user_type`
-  ADD PRIMARY KEY (`id_usertype`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `faq`
---
-ALTER TABLE `faq`
-  MODIFY `id_faq` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `ligue`
---
-ALTER TABLE `ligue`
-  MODIFY `id_ligue` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `user`
---
-ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `user_type`
---
-ALTER TABLE `user_type`
-  MODIFY `id_usertype` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `faq`
---
-ALTER TABLE `faq`
-  ADD CONSTRAINT `faq_user_FK` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
-
---
--- Contraintes pour la table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ligue_FK` FOREIGN KEY (`id_ligue`) REFERENCES `ligue` (`id_ligue`),
-  ADD CONSTRAINT `user_user_type0_FK` FOREIGN KEY (`id_usertype`) REFERENCES `user_type` (`id_usertype`);
-COMMIT;
---
--- Insert into ligue
---
-
-INSERT INTO `ligue` (`id_ligue`, `lib_ligue`) 
+INSERT INTO usertype 
 VALUES 
-('1', 'Ligue de football'), 
-('2', 'Ligue de basket'), ('3', 'Ligue de volley'), 
-('4', 'Ligue de handball'),
-('5','Toutes les ligues');
-
---
--- Insert into user types
---
-INSERT INTO `user_type` (`id_usertype`, `lib_usertype`, `description`)
-VALUES 
-('1', 'utilisateur', 'Administrateur de ligue '), 
-('2', 'admin', 'Administrateur de ligue '), 
-('3', 'superadmin', 'Administrateur de toutes les ligues ');
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+(1,"utilisateur","utilisateur de base"), 
+(2,"admin","administrateur de ligue"), 
+(3,"super-admin","administrateur de toutes les ligues");
