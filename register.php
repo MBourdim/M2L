@@ -1,5 +1,5 @@
 <?php
-include("menu.php");
+
 include('./fonction.inc.php');
 $dbh = connexion(); // Connexion à la base de données
 ?>
@@ -44,11 +44,35 @@ if(isset($_POST['forminscription'])) {
    <head>
       <title></title>
       <meta charset="utf-8">
+      <link rel="stylesheet" href="css/FAQ.css">
    </head>
    <body>
+   <div class="outer-div">
+    <div class="inner-div">
+    <center><img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png"></center>
+</div>
+<br><br>
+<div class="outer-div2">
+        <div class="inner-div2">
+        <br><br>
+        <h1>Bienvenue sur le site de la FAQ</h1>
+        <br><br>
+        <h3>Veuillez vous inscrire pour continuer</h3>
+        <br><br>
+        <div class="vertical-menu">
+                <a href="faq.php"class="active">Accueil de la FAQ</a>
+                <a href="index.php">Maison des ligues</a>
+                <a href="football.php">Ligue de Football</a>
+                <a href="list.php">Liste des questions</a>
+                <a href="add.php">Ajouter une question</a>
+                <a href="login.php">Connexion</a>
+                <a href="logout.php">Déconnexion</a>
+                <a href="register.php">Inscription</a>
+        </div>
+        <span class="imageDroite"><img src="img/footanim.gif" align="right" height="500px"/></span>
     <div align="center">
          <h2>Inscription</h2>
-         <br /><br />
+         <br />
          <form method="POST" action="">
             <b>Pseudo</b>
             <br>
@@ -73,12 +97,18 @@ if(isset($_POST['forminscription'])) {
             <option type="text" id="rugby" name="rugby" value="2"<?php if(isset($rugby)) { echo $rugby; } ?> >Ligue de Rugby</option>
             <br>     
             <input type="submit" name="forminscription" value="Je m'inscris" />
+            
          </form>
+         
          <?php
          if(isset($erreur)) {
             echo '<font color="red">'.$erreur."</font>";
          }
+ 
          ?>
+      </div>
+      
+      </div>
       </div>
    </body>
 </html>

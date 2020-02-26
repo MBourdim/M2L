@@ -55,16 +55,11 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
 <br>
 <div class="outer-div2">
         <div class="inner-div2">
-        <br>
-        <br>
+        <br><br>
         <h1>Bienvenue sur le site de la FAQ</h1>
-        <br>
-        <br>
+        <br><br>
         <h3>Veuillez vous inscrire pour continuer</h3>
-        <br>
-        <span class="imageDroite"><img src="img/footanim.gif" align="right" height="500px"/></span>
-        <br>
-        <br>
+        <br><br>
         <div class="vertical-menu">
                 <a href="faq.php"class="active">Accueil de la FAQ</a>
                 <a href="index.php">Maison des ligues</a>
@@ -75,10 +70,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
                 <a href="logout.php">Déconnexion</a>
                 <a href="register.php">Inscription</a>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
+        <span class="imageDroite"><img src="img/footanim.gif" align="right" height="500px"/></span>
         </div>
 </div>
 </body>
