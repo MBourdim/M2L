@@ -1,7 +1,7 @@
 
 <?php
 
-include('fonction.inc.php');
+include('./fonction.inc.php');
 $dbh = connexion();
 
 ?>
@@ -25,25 +25,32 @@ $dbh = connexion();
 <br>
 <?php
 
-
-$sql = "Select * 
-from faq , user 
-where faq.id_user = user.id_user   
-order by question asc";
-$sth->execute(); //éxecute
+$sql = "SELECT  pseudo , id_faq , reponse ,question
+FROM faq , user 
+WHERE faq.id_user = user.id_user   ";
+try {   
+    $sth = $dbh->prepare($sql);
+    $sth->execute(); //éxecute
+    $rows = $sth->fetchAll(PDO::FETCH_ASSOC); // fetchall Retourne un tableau contenant toutes les lignes du jeu d'enregistrements
+  } catch (PDOException $ex) {
+   die("Erreur lors de la requête SQL : ".$ex->getMessage());
+  }
 echo "<table>";
         
-        echo "<tr><th>Num</th><th>Auteur</th><th>Question</th><th>Action</th>"; // affichage de l'entête du tableau
+        echo "<tr><th>Num</th><th>Auteur</th><th>Question</th><th>reponse</th><th>Action</th>"; // affichage de l'entête du tableau
         foreach ($rows as $row) { // afficher le contenu de la base de donnée 
             echo "<tr>";
             echo "<td>".$row['id_faq']."</td>";  // mettre une Majuscule 
             echo "<td>".$row['pseudo']."</td>";
             echo "<td>".$row['question']."</td>";
-            echo "<td> action </td>";
+            echo "<td>".$row['reponse']."</td>";
+            echo "<td> </td>";
             echo "</tr>";
         
         }
- ?>       
+  echo"</table>";
+ ?>     
+
 <br><br>
 </body>    
  

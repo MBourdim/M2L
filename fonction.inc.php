@@ -13,3 +13,16 @@ function connexion() {
     die("Erreur lors de la connexion SQL : " . $ex->getMessage());
   }
 }
+
+function db_execute($dbh, $sql, $params=null)
+{
+    $rows = array();
+    try {
+        $sth = $dbh->prepare($sql);
+        $sth->execute($params);
+        $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
+    }
+    return $rows;
+}
