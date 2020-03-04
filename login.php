@@ -1,56 +1,44 @@
 <?php
-
+session_start();
 include('./fonction.inc.php');
 $dbh = connexion();
+
+
+if(isset($_POST['submit'])) {
+   $pseudo=isset($_POST['pseudo']) ? $_POST['pseudo'] : '';
+   $password=isset($_POST['password']) ? $_POST['password'] : '';  
+   if(!empty($pseudo) AND !empty($password)) {
+      $requser = $dbh->prepare("SELECT * FROM user");
+      $requser->execute(array($pseudo, $password));
+         $_SESSION['id_user'] = $userinfo['id_user'];
+         $_SESSION['pseudo'] = $userinfo['pseudo'];
+         $_SESSION['mail'] = $userinfo['mail'];
+         echo "Salut";
+      } else {
+         $erreur = "Mauvais mail ou mot de passe !";
+      }
+      
+    
 ?>
-<?php
-$pseudo=isset($_POST['pseudo']) ? $_POST['pseudo'] : '';
-$password=isset($_POST['password']) ? $_POST['password'] : '';
-$submit=isset($_POST['submit']);
-$sql = "select * from user";
-try {
-$sth = $dbh->prepare($sql);
-$sth->execute(array(':pseudo' => $pseudo));
-$sth->execute(array(':pseudo' => $pseudo));
-$rows = $sth->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $ex) {
-die("Erreur lors de la requête SQL : " . $ex->getMessage());
-}
-?>
+
 <html>
    <head>
-      <title>Login</title>
+      <title>Connexion</title>
       <meta charset="utf-8">
       <link rel="stylesheet" href="css/FAQ.css">
    </head>
    <body>
    <div class="outer-div">
     <div class="inner-div">
-    <center><img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png"></center>
+    <center><a href="faq.php"><img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png"></a></center>
 </div>
-<br>
-<br>
-
-   <div class="outer-div2">
-        <div class="inner-div2">
-        <br><br>
-        <h1>Bienvenue sur le site de la FAQ</h1>
-        <br><br>
-        <h3>Veuillez vous inscrire pour continuer</h3>
-        <br><br>
-        <div class="vertical-menu">
-                <a href="faq.php"class="active">Accueil de la FAQ</a>
-                <a href="index.php">Maison des ligues</a>
-                <a href="football.php">Ligue de Football</a>
-                <a href="list.php">Liste des questions</a>
-                <a href="add.php">Ajouter une question</a>
-                <a href="login.php">Connexion</a>
-                <a href="logout.php">Déconnexion</a>
-                <a href="register.php">Inscription</a>
-        </div>
-        <span class="imageDroite"><img src="img/footanim.gif" align="right" height="500px"/></span>
-
-      
+<br><br>
+<html>
+   <head>
+      <title>Connexion</title>
+      <meta charset="utf-8">
+   </head>
+   <body>
       <div align="center">
          <h2>Connexion</h2>
          <br/><br/>
@@ -63,7 +51,6 @@ die("Erreur lors de la requête SQL : " . $ex->getMessage());
          <?php
          ?>
       </div>
-      </div>
-
+   
    </body>
 </html>
