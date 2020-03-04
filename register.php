@@ -34,7 +34,6 @@ if(isset($_POST['submit'])){
       <link rel="stylesheet" href="css/FAQ.css">
    </head>
    <body>
-<<<<<<< HEAD
    <div class="outer-div">
     <div class="inner-div">
     <center><img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png"></center>
@@ -86,7 +85,6 @@ if(isset($_POST['submit'])){
             <br>     
             <input type="submit" name="forminscription" value="Je m'inscris" />
             
-=======
       <div align="center">
          <h2>Inscription</h2>
          <br/><br/>
@@ -105,11 +103,9 @@ if(isset($_POST['submit'])){
             </p>
             <br/><br/>
             <input type="submit" name="submit" value="Se connecter !" />
->>>>>>> e5d37d91314c877c133116a4f7260b48289ec446
          </form>
          
          <?php
-<<<<<<< HEAD
          if(isset($erreur)) {
             echo '<font color="red">'.$erreur."</font>";
          }
@@ -119,11 +115,9 @@ if(isset($_POST['submit'])){
       
       </div>
       </div>
-=======
          ?>
       </div>
    
->>>>>>> e5d37d91314c877c133116a4f7260b48289ec446
    </body>
 </html>
 

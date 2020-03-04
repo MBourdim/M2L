@@ -1,4 +1,11 @@
 
+<?php
+
+include('fonction.inc.php');
+$dbh = connexion();
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -24,24 +31,6 @@
   <li><a href="delete.php">Supprimer une question</a></li>
 </ul>
 <br><br>
-<center>
-<table>
-      <tr>
-        <th>N°</th>
-        <th>Auteur</th>
-        <th>Question</th>
-        <th>Réponse</th>
-        <th>Actions</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>sdfdu31</td>
-        <td>Qui aime Minecraft ?</td>
-        <td>Moi j'adore</td>
-        <td><a href="delete.php"><img src="img/cancel.png" alt="cancel.png"></a><a href="edit.php"><img src="img/pencil.png" alt="pencil.png"></a> </td>
-    </table>
-</center>
-
 </body>    
  
     
