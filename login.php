@@ -3,21 +3,28 @@ session_start();
 include('./fonction.inc.php');
 $dbh = connexion();
 
-
 if(isset($_POST['submit'])) {
-   $pseudo=isset($_POST['pseudo']) ? $_POST['pseudo'] : '';
-   $password=isset($_POST['password']) ? $_POST['password'] : '';  
-   if(!empty('pseudo') AND !empty('password')) {
-      $requser = $dbh->prepare("SELECT * FROM user");
+   $pseudo = htmlspecialchars($_POST['pseudo']);
+   $password = sha1($_POST['password']);
+   if(!empty($pseudo) AND !empty($password)) {
+      $requser = $dbh->prepare("SELECT * FROM user WHERE pseudo = ? AND mdp = ?");
       $requser->execute(array($pseudo, $password));
-         $_SESSION['pseudo'] = $pseudo;
-         $_SESSION['mdp'] = $password;
-         echo "Salut";
+      $userexist = $requser->rowCount();
+      if($userexist == 1) {
+         $userinfo = $requser->fetch();
+         $_SESSION['id_user'] = $userinfo['id_user'];
+         $_SESSION['pseudo'] = $userinfo['pseudo'];
+         $_SESSION['password'] = $userinfo['password'];
+         header("Location: login.php?id=".$_SESSION['id_user']);
       } else {
-         $erreur = "Mauvais mail ou mot de passe !";
+         $erreur="Mauvais pseudo ou mot de passe !";
       }
+   } else {
+      $erreur="Tous les champs doivent être complétés !";
+   }
 }
 ?>
+
 
 <html>
    <head>
@@ -49,6 +56,12 @@ if(isset($_POST['submit'])) {
          <?php
          ?>
       </div>
-   
+      <?php
+         if(isset($erreur)) {
+            echo"<center><br>";
+            echo '<font color="red">'.$erreur."</font>";
+            echo"</center>";
+         }
+         ?>
    </body>
 </html>
