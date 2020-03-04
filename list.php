@@ -8,13 +8,13 @@ $dbh = connexion();
 
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/edit-liste.css">
-  <title>Liste des questions FAQ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Repondre</title>
+    <link rel="stylesheet" type="text/css" href="css/edit-liste.css">
 </head>
 <body>
 <div class="outer-div">
@@ -23,6 +23,15 @@ $dbh = connexion();
   </div>
 </div>
 <br>
+<ul>
+  <li><a href="faq.php">Accueil de la FAQ</a></li>
+  <li><a href="list.php"class="active">Liste des questions</a></li>
+  <li><a href="add.php">Ajouter une question</a></li>
+  <li><a href="edit.php">Répondre à une question</a></li>
+  <li><a href="delete.php">Supprimer une question</a></li>
+</ul>
+<br>
+<center>
 <?php
 
 $sql = "SELECT  pseudo , id_faq , reponse ,question
