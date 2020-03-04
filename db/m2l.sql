@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `m2l`
 --
-CREATE DATABASE IF NOT EXISTS `m2l` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 USE `m2l`;
 
 -- --------------------------------------------------------
@@ -84,19 +84,6 @@ CREATE TABLE `user` (
   `id_ligue` bigint(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `user`
---
-
-INSERT INTO `user` (`id_user`, `pseudo`, `mdp`, `mail`, `id_usertype`, `id_ligue`) VALUES
-(1, 'jeff', '$2y$10$2UeK58Jxm3Fyg3Z7KsJc5ehQjoEPYaGE5y97sERR3QWRAweeHCkhm', 'jeff@gmail.com', 1, 1),
-(2, 'dylan', '$2y$10$6yaGn3Ju0Ne50XPCnPdlautIsRAgkWbIowZD5ou51yk58bn6Oadsa', 'dylan@gmail.com', 2, 1),
-(3, 'georges', '$2y$10$4mEq79Krj.gMy9xSp5amZeuPZQHGhh24dchZfY8Lz6eQDu6WEiKxW', 'georges@gmail.com', 3, 5),
-(4, 'j', '0294cdcff3ed3c13dede749bd12a0c4ca222c7c7', 'jk', NULL, 4),
-(5, 'salut', 'effdb5f96a28acd2eb19dcb15d8f43af762bd0ae', 'g', NULL, 2),
-(7, 'jggg', '13f566a247aaf7dfd9cf0c8fa1ac5b140045f10a', 'jgggg', NULL, 2);
-
--- --------------------------------------------------------
 
 --
 -- Structure de la table `usertype`
