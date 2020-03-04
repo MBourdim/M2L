@@ -18,7 +18,6 @@ if(isset($_POST['submit'])){
 }
    }else{
       $erreur = "Tous les champs doivent être complétés !";
-      echo "salut compe";
    }
 }
 

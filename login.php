@@ -7,18 +7,16 @@ $dbh = connexion();
 if(isset($_POST['submit'])) {
    $pseudo=isset($_POST['pseudo']) ? $_POST['pseudo'] : '';
    $password=isset($_POST['password']) ? $_POST['password'] : '';  
-   if(!empty($pseudo) AND !empty($password)) {
+   if(!empty('pseudo') AND !empty('password')) {
       $requser = $dbh->prepare("SELECT * FROM user");
       $requser->execute(array($pseudo, $password));
-         $_SESSION['id_user'] = $userinfo['id_user'];
-         $_SESSION['pseudo'] = $userinfo['pseudo'];
-         $_SESSION['mail'] = $userinfo['mail'];
+         $_SESSION['pseudo'] = $pseudo;
+         $_SESSION['mdp'] = $password;
          echo "Salut";
       } else {
          $erreur = "Mauvais mail ou mot de passe !";
       }
-      
-    
+}
 ?>
 
 <html>
