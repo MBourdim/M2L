@@ -23,13 +23,27 @@ $dbh = connexion();
   </div>
 </div>
 <br>
-<ul>
-  <li><a href="faq.php">Accueil de la FAQ</a></li>
-  <li><a href="list.php"class="active">Liste des questions</a></li>
-  <li><a href="add.php">Ajouter une question</a></li>
-  <li><a href="edit.php">Répondre à une question</a></li>
-  <li><a href="delete.php">Supprimer une question</a></li>
-</ul>
+<?php
+
+
+$sql = "Select * 
+from faq , user 
+where faq.id_user = user.id_user   
+order by question asc";
+$sth->execute(); //éxecute
+echo "<table>";
+        
+        echo "<tr><th>Num</th><th>Auteur</th><th>Question</th><th>Action</th>"; // affichage de l'entête du tableau
+        foreach ($rows as $row) { // afficher le contenu de la base de donnée 
+            echo "<tr>";
+            echo "<td>".$row['id_faq']."</td>";  // mettre une Majuscule 
+            echo "<td>".$row['pseudo']."</td>";
+            echo "<td>".$row['question']."</td>";
+            echo "<td> action </td>";
+            echo "</tr>";
+        
+        }
+ ?>       
 <br><br>
 </body>    
  
