@@ -3,7 +3,7 @@ session_start();
 
 
 if(isset($_SESSION['id_user'])) {
-   $requser = $bdd->prepare("SELECT * FROM user WHERE id_user = ?");
+   $requser = $dbh->prepare("SELECT * FROM user WHERE id_user = ?");
    $requser->execute(array($_SESSION['id_user']));
    $user = $requser->fetch();
    if(isset($_POST['newpseudo']) AND !empty($_POST['newpseudo']) AND $_POST['newpseudo'] != $user['pseudo']) {

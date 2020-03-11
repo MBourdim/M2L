@@ -15,7 +15,8 @@ if(isset($_POST['submit'])) {
          $_SESSION['id_user'] = $userinfo['id_user'];
          $_SESSION['pseudo'] = $userinfo['pseudo'];
          $_SESSION['password'] = $userinfo['password'];
-         header("Location: login.php?id=".$_SESSION['id_user']);
+         $userinfo['id_user'] = $user;
+         header('Location: faq.php?id='.$_SESSION['id_user']);
       } else {
          $erreur="Mauvais pseudo ou mot de passe !";
       }
@@ -45,6 +46,7 @@ if(isset($_POST['submit'])) {
    </head>
    <body>
       <div align="center">
+
          <h2>Connexion</h2>
          <br/><br/>
          <form method="post" action="login.php" id="form1">

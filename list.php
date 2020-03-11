@@ -1,7 +1,7 @@
 
 <?php
-
 include('./fonction.inc.php');
+include('./login.php');
 $dbh = connexion();
 
 ?>
@@ -45,7 +45,7 @@ try {
    die("Erreur lors de la requête SQL : ".$ex->getMessage());
   }
 echo "<table>";
-        
+        echo ".$user.";
         echo "<tr><th>Num</th><th>Auteur</th><th>Question</th><th>reponse</th><th>Action</th>"; // affichage de l'entête du tableau
         foreach ($rows as $row) { // afficher le contenu de la base de donnée 
             echo "<tr>";

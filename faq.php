@@ -5,7 +5,7 @@ $dbh = connexion();
 
 if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
    $getid_user = intval($_GET['id_user']);
-   $requser = $bdd->prepare('SELECT * FROM user WHERE id_user = ?');
+   $requser = $dbh->prepare('SELECT * FROM user WHERE id_user = ?');
    $requser->execute(array($getid_user));
    $userinfo = $requser->fetch();
 ?>
@@ -16,20 +16,10 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
    </head>
    <body>
       <div align="center">
-         <h2>Profil de <?php echo $userinfo['pseudo']; ?></h2>
-         <br /><br />
-         Pseudo = <?php echo $userinfo['pseudo']; ?>
-         <br />
-         Mail = <?php echo $userinfo['mail']; ?>
-         <br />
-         <?php
-         if(isset($_SESSION['id_user']) AND $userinfo['id_user'] == $_SESSION['id_user']) {
-         ?>
-         <br />
-         <a href="editionprofil.php">Editer mon profil</a>
+         <h2>Profil de <?php echo $userinfo['id_user']; ?></h2>
+         <h2>Profil de <?php echo Salut; ?></h2>
          <?php
          }
-      }
          ?>
       </div>
 </body>
@@ -37,7 +27,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,6 +49,9 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
         <h1>Bienvenue sur le site de la FAQ</h1>
         <br><br>
         <h3>Veuillez vous inscrire pour continuer</h3>
+        <?php
+        echo ".$user.";
+        ?>
         <br><br>
         <div class="vertical-menu">
                 <a href="faq.php"class="active">Accueil de la FAQ</a>
