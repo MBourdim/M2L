@@ -31,7 +31,7 @@ if(isset($_POST['submit'])) {
    <head>
       <title>Connexion</title>
       <meta charset="utf-8">
-      <link rel="stylesheet" href="css/FAQ.css">
+      <link rel="stylesheet" href="css/login.css">
    </head>
    <body>
    <div class="outer-div">
@@ -49,15 +49,18 @@ if(isset($_POST['submit'])) {
 
          <h2>Connexion</h2>
          <br/><br/>
+         <div class="outer-div2">
+        <div class="inner-div2">
+        <br>
          <form method="post" action="login.php" id="form1">
             <p>Pseudo <br> <input type="text" name="pseudo" placeholder="Pseudo"/></p>
             <p>Mot de passe <br><input type="password"name="password" placeholder="Mot de passe"/></p>
             <br/><br/>
             <input type="submit" name="submit" value="Se connecter !" />
          </form>
-         <?php
-         ?>
       </div>
+   </div>
+</div>
       <?php
          if(isset($erreur)) {
             echo"<center><br>";
