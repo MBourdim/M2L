@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
    <head>
       <title>Inscription</title>
       <meta charset="utf-8">
-      <link rel="stylesheet" href="css/FAQ.css">
+      <link rel="stylesheet" href="css/register.css">
    </head>
    <body>
    <div class="outer-div">
@@ -45,6 +45,9 @@ if(isset($_POST['submit'])){
       <div align="center">
          <h2>Inscription</h2>
          <br/><br/>
+         <div class="outer-div2">
+        <div class="inner-div2">
+        <br>
          <form method="post" action="register.php" id="form1">
             <p>Pseudo <br> <input type="text" name="pseudo" placeholder="Pseudo"/></p>
             <p>Mail <br> <input type="text" name="mail" placeholder="Mail"/></p>
@@ -63,8 +66,9 @@ if(isset($_POST['submit'])){
          </form>
          <?php
          ?>
+         </div>
       </div>
-   
+   </div>
    </body>
 </html>
 
