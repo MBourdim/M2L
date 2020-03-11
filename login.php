@@ -16,7 +16,7 @@ if(isset($_POST['submit'])) {
          $_SESSION['pseudo'] = $userinfo['pseudo'];
          $_SESSION['password'] = $userinfo['password'];
          $userinfo['id_user'] = $user;
-         header('Location: faq.php?id='.$_SESSION['id_user']);
+         header('Location: faq.php?pseudo='.$_SESSION['id_user']);
       } else {
          $erreur="Mauvais pseudo ou mot de passe !";
       }
