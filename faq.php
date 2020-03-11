@@ -15,7 +15,7 @@
     <center><img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png"></center>
 </div>
 <?php include('./profil.php');?>
-<br><br>
+<br>
 <div class="outer-div2">
         <div class="inner-div2">
         <br><br>
