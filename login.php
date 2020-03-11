@@ -14,14 +14,13 @@ if(isset($_POST['submit'])) {
          $userinfo = $requser->fetch();
          $_SESSION['id_user'] = $userinfo['id_user'];
          $_SESSION['pseudo'] = $userinfo['pseudo'];
-         $_SESSION['password'] = $userinfo['password'];
-         $userinfo['id_user'] = $user;
-         header('Location: faq.php?id='.$_SESSION['id_user']);
+         $_SESSION['mdp'] = $userinfo['mdp'];
+         header("Location: faq.php?id_user=".$_SESSION['id_user']);
       } else {
-         $erreur="Mauvais pseudo ou mot de passe !";
+         $erreur = "Mauvais mail ou mot de passe !";
       }
    } else {
-      $erreur="Tous les champs doivent être complétés !";
+      $erreur = "Tous les champs doivent être complétés !";
    }
 }
 ?>

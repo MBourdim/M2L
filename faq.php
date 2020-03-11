@@ -1,30 +1,6 @@
 <?php
-session_start();
-include('./fonction.inc.php');
-$dbh = connexion();
-
-if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
-   $getid_user = intval($_GET['id_user']);
-   $requser = $dbh->prepare('SELECT * FROM user WHERE id_user = ?');
-   $requser->execute(array($getid_user));
-   $userinfo = $requser->fetch();
+include('./profil.php');
 ?>
-<html>
-   <head>
-      <title>Faq</title>
-      <meta charset="utf-8">
-   </head>
-   <body>
-      <div align="center">
-         <h2>Profil de <?php echo $userinfo['id_user']; ?></h2>
-         <h2>Profil de <?php echo Salut; ?></h2>
-         <?php
-         }
-         ?>
-      </div>
-</body>
-</html>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -49,9 +25,6 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
         <h1>Bienvenue sur le site de la FAQ</h1>
         <br><br>
         <h3>Veuillez vous inscrire pour continuer</h3>
-        <?php
-        echo ".$user.";
-        ?>
         <br><br>
         <div class="vertical-menu">
                 <a href="faq.php"class="active">Accueil de la FAQ</a>
