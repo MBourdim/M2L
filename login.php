@@ -13,7 +13,7 @@ if(isset($_POST['submit'])) {
       $tbl = mysqli_query($connect,$dbh);
          if(mysqli_num_rows($tbl)>0){
             $row = mysqli_fetch_array($tbl);
-            $password_hash = $row['password'];
+            $password_hash = $row['password'];b
             if(password_verify($password,$password_hash)){
                
             }
