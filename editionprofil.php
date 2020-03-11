@@ -1,20 +1,21 @@
 <?php
 session_start();
-
-
+include('./fonction.inc.php');
+$dbh = connexion();
+ 
 if(isset($_SESSION['id_user'])) {
    $requser = $dbh->prepare("SELECT * FROM user WHERE id_user = ?");
    $requser->execute(array($_SESSION['id_user']));
    $user = $requser->fetch();
    if(isset($_POST['newpseudo']) AND !empty($_POST['newpseudo']) AND $_POST['newpseudo'] != $user['pseudo']) {
       $newpseudo = htmlspecialchars($_POST['newpseudo']);
-      $insertpseudo = $bdd->prepare("UPDATE user SET pseudo = ? WHERE id_user = ?");
+      $insertpseudo = $dbh->prepare("UPDATE user SET pseudo = ? WHERE id_user = ?");
       $insertpseudo->execute(array($newpseudo, $_SESSION['id_user']));
       header('Location: faq.php?id_user='.$_SESSION['id_user']);
    }
    if(isset($_POST['newmail']) AND !empty($_POST['newmail']) AND $_POST['newmail'] != $user['mail']) {
       $newmail = htmlspecialchars($_POST['newmail']);
-      $insertmail = $bdd->prepare("UPDATE user SET mail = ? WHERE id_user = ?");
+      $insertmail = $dbh->prepare("UPDATE user SET mail = ? WHERE id_user = ?");
       $insertmail->execute(array($newmail, $_SESSION['id_user']));
       header('Location: faq.php?id_user='.$_SESSION['id_user']);
    }
@@ -22,7 +23,7 @@ if(isset($_SESSION['id_user'])) {
       $mdp1 = sha1($_POST['newmdp1']);
       $mdp2 = sha1($_POST['newmdp2']);
       if($mdp1 == $mdp2) {
-         $insertmdp = $bdd->prepare("UPDATE user SET mdp = ? WHERE id_user = ?");
+         $insertmdp = $dbh->prepare("UPDATE user SET mdp = ? WHERE id_user = ?");
          $insertmdp->execute(array($mdp1, $_SESSION['id_user']));
          header('Location: faq.php?id_user='.$_SESSION['id_user']);
       } else {
@@ -32,7 +33,7 @@ if(isset($_SESSION['id_user'])) {
 ?>
 <html>
    <head>
-      <title>Profil</title>
+      <title>TUTO PHP</title>
       <meta charset="utf-8">
    </head>
    <body>

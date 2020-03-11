@@ -1,31 +1,3 @@
-<?php
-session_start();
-include('./fonction.inc.php');
-$dbh = connexion();
-
-if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
-   $getid_user = intval($_GET['id_user']);
-   $requser = $dbh->prepare('SELECT * FROM user WHERE id_user = ?');
-   $requser->execute(array($getid_user));
-   $userinfo = $requser->fetch();
-?>
-<html>
-   <head>
-      <title>Faq</title>
-      <meta charset="utf-8">
-   </head>
-   <body>
-      <div align="center">
-         <h2>Profil de <?php echo $userinfo['id_user']; ?></h2>
-         <h2>Profil de <?php echo Salut; ?></h2>
-         <?php
-         }
-         ?>
-      </div>
-</body>
-</html>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -39,19 +11,17 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
 <body>
 <div class="outer-div">
     <div class="inner-div">
+
     <center><img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png"></center>
 </div>
-<br>
-<br>
+<?php include('./profil.php');?>
+<br><br>
 <div class="outer-div2">
         <div class="inner-div2">
         <br><br>
         <h1>Bienvenue sur le site de la FAQ</h1>
         <br><br>
         <h3>Veuillez vous inscrire pour continuer</h3>
-        <?php
-        echo ".$user.";
-        ?>
         <br><br>
         <div class="vertical-menu">
                 <a href="faq.php"class="active">Accueil de la FAQ</a>

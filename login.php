@@ -4,9 +4,20 @@ include('./fonction.inc.php');
 $dbh = connexion();
 
 if(isset($_POST['submit'])) {
+   echo 
    $pseudo = htmlspecialchars($_POST['pseudo']);
-   $password = sha1($_POST['password']);
+   $password = $_POST['password'];
    if(!empty($pseudo) AND !empty($password)) {
+      $pseudo = strip_tags(mysqli_real_escape_string($connect,trim($pseudo)));
+      $password = strip_tags(mysqli_real_escape_string($connect,trim($password)));
+      $tbl = mysqli_query($connect,$dbh);
+         if(mysqli_num_rows($tbl)>0){
+            $row = mysqli_fetch_array($tbl);
+            $password_hash = $row['password'];
+            if(password_verify($password,$password_hash)){
+               
+            }
+         }
       $requser = $dbh->prepare("SELECT * FROM user WHERE pseudo = ? AND mdp = ?");
       $requser->execute(array($pseudo, $password));
       $userexist = $requser->rowCount();
@@ -18,10 +29,10 @@ if(isset($_POST['submit'])) {
          $userinfo['id_user'] = $user;
          header('Location: faq.php?pseudo='.$_SESSION['id_user']);
       } else {
-         $erreur="Mauvais pseudo ou mot de passe !";
+         $erreur = "Mauvais mail ou mot de passe !";
       }
    } else {
-      $erreur="Tous les champs doivent être complétés !";
+      $erreur = "Tous les champs doivent être complétés !";
    }
 }
 ?>
