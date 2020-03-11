@@ -1,7 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/FAQ.css">
+</head>
+<body>
+    
+</body>
+</html>
 <?php
 session_start();
 include('./fonction.inc.php');
-
+$dbh = connexion();
 if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
    $getid = intval($_GET['id_user']);
    $requser = $dbh->prepare('SELECT * FROM user WHERE id_user = ?');
@@ -14,12 +26,12 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
       <meta charset="utf-8">
    </head>
    <body>
-      <div align="center">
+      <div align="center" class ="profil">
          <h2>Profil de <?php echo $userinfo['pseudo']; ?></h2>
          <br /><br />
-         Pseudo = <?php echo $userinfo['pseudo']; ?>
+         <p>Pseudo = <?php echo $userinfo['pseudo']; ?></p>
          <br />
-         Mail = <?php echo $userinfo['mail']; ?>
+         <p>Mail = <?php echo $userinfo['mail']; ?></p>
          <br />
          <?php
          if(isset($_SESSION['id_user']) AND $userinfo['id_user'] == $_SESSION['id_user']) {
@@ -36,7 +48,4 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
 <?php  
 }
 ?>
-</div>
-</body>
-</html>
 

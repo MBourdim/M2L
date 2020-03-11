@@ -9,9 +9,11 @@ if(isset($_POST['submit'])){
       $pseudo=$_POST['pseudo'];
       $pseudolength = strlen($pseudo);
       if($pseudolength >= 3) {
-   $password = sha1($_POST['password']);
+   $password = $_POST['password'];
+   $passwordhash = password_hash($password,PASSWORD_DEFAULT);
    $insertsql = $dbh->prepare('INSERT INTO user(pseudo,mdp,mail,id_ligue) VALUES (?,?,?,?)');
-   $insertsql->execute(array($_POST['pseudo'],$password,$_POST['mail'],$_POST['ligue']));     
+   $insertsql->execute(array($_POST['pseudo'],$passwordhash,$_POST['mail'],$_POST['ligue']));
+   header("Location: login.php");     
 }else{
    $erreur = "pseudo";
    echo "$erreur";
@@ -59,7 +61,7 @@ if(isset($_POST['submit'])){
             </select>
             </p>
             <br/><br/>
-            <input type="submit" name="submit" value="Se connecter !" />
+            <input type="submit" name="submit" value="S'inscrire'" />
          </form>
          <?php
          ?>

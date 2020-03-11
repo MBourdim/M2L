@@ -10,6 +10,15 @@
     margin: 0 auto;
     width: 1000px; 
 }
+
+.profil {
+  margin: 0 auto;
+  width: 400px;
+  height: 150px;
+  background-color: white;
+
+  border-radius: 25px;
+}
 .rectangle {
     border-radius: 25px;
     background: rgb(0, 0, 0);
