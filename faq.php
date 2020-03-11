@@ -1,7 +1,3 @@
-<?php
-include('./profil.php');
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,10 +11,11 @@ include('./profil.php');
 <body>
 <div class="outer-div">
     <div class="inner-div">
+
     <center><img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png"></center>
 </div>
-<br>
-<br>
+<?php include('./profil.php');?>
+<br><br>
 <div class="outer-div2">
         <div class="inner-div2">
         <br><br>
