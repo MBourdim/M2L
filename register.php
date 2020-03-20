@@ -1,3 +1,31 @@
+<?php
+include('./fonction.inc.php');
+$dbh = connexion(); // Connexion à la base de données
+?>
+<?php
+
+if(isset($_POST['submit'])){
+   if(!empty($_POST['pseudo']) && !empty($_POST['mail']) && !empty($_POST['password'])){
+      $pseudo=$_POST['pseudo'];
+      $pseudolength = strlen($pseudo);
+      if($pseudolength >= 3) {
+   $password = $_POST['password'];
+   $passwordhash = password_hash($password,PASSWORD_DEFAULT);
+   $insertsql = $dbh->prepare('INSERT INTO user(pseudo,mdp,mail,id_ligue) VALUES (?,?,?,?)');
+   $insertsql->execute(array($_POST['pseudo'],$passwordhash,$_POST['mail'],$_POST['ligue']));
+   header("Location: login.php");     
+}else{
+   $erreur = "pseudo";
+   echo "$erreur";
+}
+   }else{
+      $erreur = "Tous les champs doivent être complétés !";
+   }
+}
+
+                        
+
+?>
 <html>
    <head>
       <title>Inscription</title>

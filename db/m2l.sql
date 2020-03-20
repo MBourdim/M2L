@@ -22,8 +22,7 @@ SET time_zone = "+00:00";
 -- Base de données :  `m2l`
 --
 
-CREATE DATABASE m2l character set = 'utf8' COLLATE = 'utf8_general_ci';
-use m2l;
+USE `m2l`;
 
 -- --------------------------------------------------------
 
@@ -47,6 +46,7 @@ CREATE TABLE `faq` (
 INSERT INTO `faq` (`id_faq`, `question`, `reponse`, `dat_question`, `dat_reponse`, `id_user`) VALUES
 (1, 'A combien de joueurs se joue le football?', 'Il y a 11 joueurs par équipe.', '2020-01-22 00:00:00', '2020-01-29 12:30:00', 1),
 (2, 'Comment on fait une passe?', 'Avec son pied.', '2020-01-30 08:00:00', '2020-02-03 02:30:00', 1);
+
 -- --------------------------------------------------------
 
 --

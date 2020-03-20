@@ -10,6 +10,16 @@
     
 </body>
 </html>
+<?php
+session_start();
+include('./fonction.inc.php');
+$dbh = connexion();
+if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
+   $getid = intval($_GET['id_user']);
+   $requser = $dbh->prepare('SELECT * FROM user WHERE id_user = ?');
+   $requser->execute(array($getid));
+   $userinfo = $requser->fetch();
+?>
 <html>
    <head>
       <title>Faq</title>
@@ -29,6 +39,9 @@
          <br />
          <a href="editionprofil.php">Editer mon profil</a>
          <a href="logout.php">Se déconnecter</a>
+         <?php
+         }
+         ?>
       </div>
    </body>
 </html>
