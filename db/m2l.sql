@@ -45,8 +45,8 @@ CREATE TABLE `faq` (
 --
 
 INSERT INTO `faq` (`id_faq`, `question`, `reponse`, `dat_question`, `dat_reponse`, `id_user`) VALUES
-(1, 'A combien de joueurs se joue le football?', 'Il y a 11 joueurs par équipe.', '2020-01-22 00:00:00', '2020-01-29 12:30:00', 1),
-(2, 'Comment on fait une passe?', 'Avec son pied.', '2020-01-30 08:00:00', '2020-02-03 02:30:00', 1);
+(1, 'Quelle est la date de la Prise de la Bastille ?', 'Le 14 juillet 1789', '2020-03-20 00:00:00', '2020-03-20 00:00:00', 1),
+(2, 'Quel est le surnom de Nicolas Sarkozy ?', 'Aucune idée.', '2020-03-20 00:00:00', '2020-03-20 00:00:00', 1);
 -- --------------------------------------------------------
 
 --
@@ -83,6 +83,11 @@ CREATE TABLE `user` (
   `id_usertype` bigint(11) DEFAULT NULL,
   `id_ligue` bigint(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT into `user` VALUES
+(1,'jeff','$2y$10$oOnd30uM4CQA2bhqKu.CJeU/nqAZHJiJl76ncZNP8jI/Zf0NenpcG','jeff@jeff',3,1),
+(2,'jeff1','$2y$10$JpttsdNPG9dA.ibH0WuVROiKpxEouFWBXJwRwuPUNJATXLyDzQTjW','jeff1@jeff1',2,1),
+(3,'jeff2','$2y$10$2BZt9QfBs2WatglKnBe6de9bM3216THOZriydi7oRPshdEhigbCKi','jeff2@jeff2',1,1);
 
 
 --

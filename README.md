@@ -13,6 +13,10 @@ Le site n'est accessible que par inscription et hachage du mot de passe.
 On définit les droit de différents profils :    
 utilisateur , administrateur , administrateur de la ligue , administrateur de toutes les lignes 
 
+Utilisateurs de test : 
+- (Super-admin) : pseudo = jeff, password = jeff;
+- (Admin) : pseudo = jeff1, password = jeff1;
+- (Utilisateur) : pseudo = jeff2, password = jeff2;
 ----
 ## Utilisation 
 On s'inscrit puis on pose des questions sur le sport de la ligue via la page add.php . L'administrateur répond ensuite aux questions .
@@ -46,6 +50,10 @@ Rédaction de la documentation du projet et commentaire des programmes .
 ---
 ## Team
 
+### V1.4 20/03/2020
+
+- Site fini, toutes les pages sont opérationnelles.
+Utilisateurs de test
 AxelGGNT 
 
 MatthieuBDG

@@ -8,6 +8,9 @@ if(isset($_SESSION['droit'])){
     if($_SESSION['droit'] <> 2 && $_SESSION['ligue'] <> 1){
       header('Location:faq.php?notif=4');
     }
+    else{
+      header('Location:faq.php?notif=2');
+    }
   } 
 }
 else{
