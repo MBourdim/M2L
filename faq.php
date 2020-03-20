@@ -28,9 +28,9 @@
                 <a href="index.php">Maison des ligues</a>
                 <a href="football.php">Ligue de Football</a>
                 <?php
-                if(!isset($_SESSION['pseudo'], $_SESSION['mdp'])) 
+                if(!isset($_SESSION['pseudo']))
                 {
-                echo '  ';
+                echo '   ';
                 } 
                 else {
                 echo "<a href='list.php'>Liste des questions</a>"; 
