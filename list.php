@@ -33,7 +33,6 @@ $dbh = connexion();
 <br>
 <center>
 <?php
-
 $sql = "SELECT  pseudo , id_faq , reponse ,question
 FROM faq , user 
 WHERE faq.id_user = user.id_user   ";
