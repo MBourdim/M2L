@@ -21,7 +21,19 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `m2l`
 --
+<<<<<<< HEAD
 CREATE DATABASE IF NOT EXISTS `m2l` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+CREATE DATABASE IF NOT EXISTS `m2l` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+>>>>>>> f56cbfef83fd1969f6f944469a92f06a86bdf079
+=======
+
+>>>>>>> c893bd3379bf2bb343741d52de4739bcae17a9f3
+>>>>>>> bc0655e68c63bdcc3dcf768930ad8347e03590f8
 USE `m2l`;
 
 -- --------------------------------------------------------
@@ -45,8 +57,23 @@ CREATE TABLE `faq` (
 --
 
 INSERT INTO `faq` (`id_faq`, `question`, `reponse`, `dat_question`, `dat_reponse`, `id_user`) VALUES
+<<<<<<< HEAD
 (1, 'A combien de joueurs se joue le football?', 'Il y a 11 joueurs par équipe.', '2020-01-22 00:00:00', '2020-01-29 12:30:00', 8),
 (2, 'Comment on fait une passe?', 'Avec son pied.', '2020-01-30 08:00:00', '2020-02-03 02:30:00', 8);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+(1, 'A combien de joueurs se joue le football?', 'Il y a 11 joueurs par équipe.', '2020-01-22 00:00:00', '2020-01-29 12:30:00', 1),
+(2, 'Comment on fait une passe?', 'Avec son pied.', '2020-01-30 08:00:00', '2020-02-03 02:30:00', 1);
+=======
+(1, 'A combien de joueurs se joue le football?', 'Il y a 11 joueurs par équipe.', '2020-01-22 00:00:00', '2020-01-29 12:30:00', 8),
+(2, 'Comment on fait une passe?', 'Avec son pied.', '2020-01-30 08:00:00', '2020-02-03 02:30:00', 8);
+>>>>>>> f56cbfef83fd1969f6f944469a92f06a86bdf079
+=======
+(1, 'A combien de joueurs se joue le football?', 'Il y a 11 joueurs par équipe.', '2020-01-22 00:00:00', '2020-01-29 12:30:00', 1),
+(2, 'Comment on fait une passe?', 'Avec son pied.', '2020-01-30 08:00:00', '2020-02-03 02:30:00', 1);
+>>>>>>> c893bd3379bf2bb343741d52de4739bcae17a9f3
+>>>>>>> bc0655e68c63bdcc3dcf768930ad8347e03590f8
 
 -- --------------------------------------------------------
 
