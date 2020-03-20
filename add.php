@@ -1,4 +1,16 @@
+<?php 
+session_start();
+include('./fonction.inc.php');
+$dbh = connexion();
 
+if(isset($_POST['submit'])){
+   if(!empty($_POST['question'])){
+   $insertsql = $dbh->prepare('INSERT INTO faq(question) VALUES (?)');
+   $insertsql->execute(array($_POST['question']));
+   $question = $_POST['question'];
+   }
+  }
+?>
 <!DOCTYPE html>
   <html lang="fr">
   <head>
@@ -31,14 +43,12 @@
     <p style ="color :grey">Veuillez saisir votre question</p>
 
 
-    <form action="/sql" method="post">Question
+    <form action="" method="post">
       <div>
-        <input type="text" style="width: 400px; height: 200px;" />
+      <p>Question : <br><textarea type="text"name="question" rows="10" placeholder="Reponse"></textarea></p>
         </div>
       <br>
-      <div class="bouton">
-        <button type="submit">Enregistrer</button>
-      </div>
+      <input type="submit" name="submit" value="Envoyer" />
     </form>      
     </center>
     

@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,14 +17,35 @@
 
     <center><img class="imagecentre1" width="500" height="200" alt="imgc1" src="img/FAQfoot.png"></center>
 </div>
-<?php include('./profil.php');?>
 <br>
 <div class="outer-div2">
         <div class="inner-div2">
         <br><br>
         <h1>Bienvenue sur le site de la FAQ</h1>
         <br><br>
-        <h3>Veuillez vous inscrire pour continuer</h3>
+        <?php
+        if (!isset($_SESSION['pseudo'])) {
+            if (isset($_GET['notif'])) {
+                switch ($_GET['notif']) {
+                case 0:
+                echo'<h3>Vous avez été déconnecté !</h3>';
+                break;
+                case 1:
+                echo'<h3>Vous êtes inscrit, vous pouvez vous connecter !</h3>';
+                break;
+                case 2:
+                echo"<h3 class='rouge'>Vous n'avez pas accès à cette page !</h3>";
+                break;
+                }
+            } 
+            else{
+                echo'<h3>Veuillez vous inscrire ou vous connecter pour continuer</h3>';
+            }
+        }
+        else{
+            echo'<h3>Bienvenue '.$_SESSION['pseudo'].' !</h3>';
+        }
+        ?>
         <br><br>
         <div class="vertical-menu">
                 <a href="faq.php"class="active">Accueil de la FAQ</a>
@@ -30,19 +54,18 @@
                 <?php
                 if(!isset($_SESSION['pseudo']))
                 {
-                echo '   ';
+                    echo '<a href="login.php">Connexion</a>';
+                    echo '<a href="register.php">Inscription</a>';
                 } 
                 else {
-                echo "<a href='list.php'>Liste des questions</a>"; 
-                echo "<a href='add.php'>Ajouter une question</a>"; 
+                    echo "<a href='list.php'>Liste des questions</a>"; 
+                    echo "<a href='add.php'>Ajouter une question</a>"; 
+                    echo '<a href="logout.php">Déconnexion</a>';
                 }
                 ?>
-                <a href="login.php">Connexion</a>
-                <a href="logout.php">Déconnexion</a>
-                <a href="register.php">Inscription</a>
         </div>
         <span class="imageDroite"><img src="img/footanim.gif" align="right" height="500px"/></span>
         </div>
-</div>
+    </div>
 </body>
 </html>

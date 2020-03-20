@@ -1,31 +1,26 @@
 <?php
-include('./fonction.inc.php');
-$dbh = connexion(); // Connexion à la base de données
+   include('./fonction.inc.php');
+   $dbh = connexion(); // Connexion à la base de données
 ?>
 <?php
+   if(isset($_POST['submit'])){
+      $pseudo = $_POST['pseudo'];
+      $password = password_hash($_POST["password"],PASSWORD_DEFAULT);
+      $mail = $_POST['mail'];
+      $ligue = $_POST['ligue'];
 
-if(isset($_POST['submit'])){
-   if(!empty($_POST['pseudo']) && !empty($_POST['mail']) && !empty($_POST['password'])){
-      $pseudo=$_POST['pseudo'];
-      $pseudolength = strlen($pseudo);
-      if($pseudolength >= 3) {
-   $password = sha1($_POST['password']);
-   $insertsql = $dbh->prepare('INSERT INTO user(pseudo,mdp,mail,id_ligue) VALUES (?,?,?,?)');
-   $insertsql->execute(array($_POST['pseudo'],$password,$_POST['mail'],$_POST['ligue']));     
-}else{
-   $erreur = "pseudo";
-   echo "$erreur";
-}
-   }else{
-      $erreur = "Tous les champs doivent être complétés !";
-   }
-}                        
-
+      $sql="INSERT into user VALUES (null,:pseudo,:mdp,:mail,1,:ligue)";
+      $params=array(
+         ':pseudo' => $pseudo,
+         ':mdp' => $password,
+         ':mail' => $mail,
+         ':ligue' => $ligue
+   );
+   db_insert($dbh, $sql, $params);
+   header('Location:faq.php?notif=1');
+   }            
 ?>
 
-                        
-
-?>
 <html>
    <head>
       <title>Inscription</title>
@@ -51,20 +46,20 @@ if(isset($_POST['submit'])){
         <div class="inner-div2">
         <br>
          <form method="post" action="register.php" id="form1">
-            <p>Pseudo <br> <input type="text" name="pseudo" placeholder="Pseudo"/></p>
-            <p>Mail <br> <input type="text" name="mail" placeholder="Mail"/></p>
-            <p>Mot de passe <br><input type="password"name="password" placeholder="Mot de passe"/></p>
+            <p>Pseudo <br> <input type="text" name="pseudo" placeholder="Pseudo" required/></p>
+            <p>Mail <br> <input type="text" name="mail" placeholder="Mail" required/></p>
+            <p>Mot de passe <br><input type="password"name="password" placeholder="Mot de passe" required/></p>
             <br>
             <p>
-            <select name="ligue">
-            <option value="1" selected>Football</option>
-            <option value="2" selected>Basket</option>
-            <option value="3" selected>Volley-ball</option>
-            <option value="4" selected>Handball</option>
-            </select>
+               <select name="ligue">
+               <option value="1" selected>Football</option>
+               <option value="2" >Basket</option>
+               <option value="3" >Volley-ball</option>
+               <option value="4" >Handball</option>
+               </select>
             </p>
             <br/><br/>
-            <input type="submit" name="submit" value="S'inscrire'" />
+            <input type="submit" name="submit" value="S'inscrire" />
          </form>
          <?php
          ?>
