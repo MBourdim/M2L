@@ -60,8 +60,16 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0) {
                 <a href="faq.php"class="active">Accueil de la FAQ</a>
                 <a href="index.php">Maison des ligues</a>
                 <a href="football.php">Ligue de Football</a>
-                <a href="list.php">Liste des questions</a>
-                <a href="add.php">Ajouter une question</a>
+                <?php
+                if(!isset($_SESSION['pseudo']))
+                {
+                echo '  ';
+                } 
+                else {
+                echo "<a href='list.php'>Liste des questions</a>"; 
+                echo "<a href='add.php'>Ajouter une question</a>"; 
+                }
+                ?>
                 <a href="login.php">Connexion</a>
                 <a href="logout.php">Déconnexion</a>
                 <a href="register.php">Inscription</a>
