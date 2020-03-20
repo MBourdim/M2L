@@ -10,8 +10,8 @@ if(isset($_POST['submit'])){
       $pseudolength = strlen($pseudo);
       if($pseudolength >= 3) {
    $password = sha1($_POST['password']);
-   $insertsql = $dbh->prepare('INSERT INTO user(pseudo,mdp,mail,id_ligue) VALUES (?,?,?,?)');
-   $insertsql->execute(array($_POST['pseudo'],$password,$_POST['mail'],$_POST['ligue']));     
+   $insertsql = $dbh->prepare('INSERT INTO user(pseudo,mdp,mail,id_usertype,id_ligue) VALUES (?,?,?,?,?)');
+   $insertsql->execute(array($_POST['pseudo'],$password,$_POST['mail'],1,$_POST['ligue']));     
 }else{
    $erreur = "pseudo";
    echo "$erreur";
