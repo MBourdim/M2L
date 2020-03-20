@@ -28,7 +28,7 @@
                 <a href="index.php">Maison des ligues</a>
                 <a href="football.php">Ligue de Football</a>
                 <?php
-                if(!isset($_SESSION['pseudo'], $_SESSION['password'])) 
+                if(!isset($_SESSION['pseudo']))
                 {
                 echo '  ';
                 } 
