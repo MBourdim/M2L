@@ -30,7 +30,7 @@
                 <?php
                 if(!isset($_SESSION['pseudo'], $_SESSION['mdp'])) 
                 {
-                echo ' ';
+                echo '  ';
                 } 
                 else {
                 echo "<a href='list.php'>Liste des questions</a>"; 
