@@ -1,3 +1,16 @@
+<?php 
+session_start();
+include('./fonction.inc.php');
+$dbh = connexion();
+
+if(isset($_POST['submit'])){
+   if(!empty($_POST['reponse'])){
+   $insertsql = $dbh->prepare('INSERT INTO faq(reponse) VALUES (?)');
+   $insertsql->execute(array($_POST['reponse']));
+   $question = $_POST['question'];
+   }
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,24 +36,37 @@
 </ul>
 <br>
 <center>
-<form action="/sql" method="post">Question
-      <div>
-        <input type="text" style="width: 400px; height: 200px;" readonly />
-        </div>
-      <br>
-
-    </form>      
+<?php
+$sql = "SELECT  pseudo , id_faq , reponse ,question
+FROM faq , user 
+WHERE faq.id_user = user.id_user   ";
+try {   
+    $sth = $dbh->prepare($sql);
+    $sth->execute(); //éxecute
+    $rows = $sth->fetchAll(PDO::FETCH_ASSOC); // fetchall Retourne un tableau contenant toutes les lignes du jeu d'enregistrements
+  } catch (PDOException $ex) {
+   die("Erreur lors de la requête SQL : ".$ex->getMessage());
+  }
+echo "<table>";
+ 
+        echo "<tr><th>Questions</th><th>Action</th>"; // affichage de l'entête du tableau
+        foreach ($rows as $row) { // afficher le contenu de la base de donnée 
+            echo "<tr>";
+            echo "<td>".$row['question']."</td>";
+            echo '<td><img src="img/pencil.png" alt="edit"><img src="img/cancel.png" alt="bouton delete"></td>';
+            echo "</tr>";
+        }
+  echo"</table>";
+?>       
     </center>
 <br><br>
 <center>
-<form action="/sql" method="post">Reponse à la question
+<form action="" method="post">
       <div>
-        <input type="text" style="width: 400px; height: 200px;" />
+      <p>Reponse : <br><textarea type="text"name="question" rows="10" placeholder="Reponse"></textarea></p>
         </div>
       <br>
-      <div class="bouton">
-        <button type="submit">Enregistrer</button>
-      </div>
+      <input type="submit" name="submit" value="Envoyer" />
     </form>      
     </center>
 </body>
