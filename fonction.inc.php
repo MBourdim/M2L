@@ -16,13 +16,37 @@ function connexion() {
 
 function db_execute($dbh, $sql, $params=null)
 {
-    $rows = array();
-    try {
-        $sth = $dbh->prepare($sql);
-        $sth->execute($params);
-        $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        die("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
-    }
-    return $rows;
+  $rows = array();
+  try {
+    $sth = $dbh->prepare($sql);
+    $sth->execute($params);
+    $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
+  } catch (PDOException $e) {
+    die("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
+  }
+  return $rows;
+}
+
+function db_insert($dbh, $sql, $params=null)
+{
+  $rows = array();
+  try {
+    $sth = $dbh->prepare($sql);
+    $sth->execute($params);
+  } catch (PDOException $e) {
+      die("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
+  }
+}
+
+function db_exehash($dbh, $sql, $params=null)
+{
+  $rows = array();
+  try {
+    $sth = $dbh->prepare($sql);
+    $sth->execute($params);
+    $rows = $sth->fetch(PDO::FETCH_ASSOC);
+  } catch (PDOException $e) {
+    die("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
+  }
+  return $rows;
 }
