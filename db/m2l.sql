@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 26 fév. 2020 à 11:41
+-- Généré le :  ven. 20 mars 2020 à 16:24
 -- Version du serveur :  10.4.6-MariaDB
 -- Version de PHP :  7.3.9
 
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `m2l`
 --
-
+CREATE DATABASE IF NOT EXISTS `m2l` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `m2l`;
 
 -- --------------------------------------------------------
@@ -30,6 +30,7 @@ USE `m2l`;
 -- Structure de la table `faq`
 --
 
+DROP TABLE IF EXISTS `faq`;
 CREATE TABLE `faq` (
   `id_faq` bigint(11) NOT NULL,
   `question` text DEFAULT NULL,
@@ -44,8 +45,8 @@ CREATE TABLE `faq` (
 --
 
 INSERT INTO `faq` (`id_faq`, `question`, `reponse`, `dat_question`, `dat_reponse`, `id_user`) VALUES
-(1, 'A combien de joueurs se joue le football?', 'Il y a 11 joueurs par équipe.', '2020-01-22 00:00:00', '2020-01-29 12:30:00', 1),
-(2, 'Comment on fait une passe?', 'Avec son pied.', '2020-01-30 08:00:00', '2020-02-03 02:30:00', 1);
+(1, 'A combien de joueurs se joue le football?', 'Il y a 11 joueurs par équipe.', '2020-01-22 00:00:00', '2020-01-29 12:30:00', 8),
+(2, 'Comment on fait une passe?', 'Avec son pied.', '2020-01-30 08:00:00', '2020-02-03 02:30:00', 8);
 
 -- --------------------------------------------------------
 
@@ -53,6 +54,7 @@ INSERT INTO `faq` (`id_faq`, `question`, `reponse`, `dat_question`, `dat_reponse
 -- Structure de la table `ligue`
 --
 
+DROP TABLE IF EXISTS `ligue`;
 CREATE TABLE `ligue` (
   `id_ligue` bigint(11) NOT NULL,
   `lib_ligue` varchar(50) DEFAULT NULL
@@ -75,6 +77,7 @@ INSERT INTO `ligue` (`id_ligue`, `lib_ligue`) VALUES
 -- Structure de la table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id_user` bigint(11) NOT NULL,
   `pseudo` varchar(50) NOT NULL,
@@ -84,11 +87,20 @@ CREATE TABLE `user` (
   `id_ligue` bigint(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id_user`, `pseudo`, `mdp`, `mail`, `id_usertype`, `id_ligue`) VALUES
+(8, 'mathias', 'd3abba7b2b42c590b28cd01c9265cf4460bcffe8', 'mathiasbourdim45@gmail.com', NULL, 4);
+
+-- --------------------------------------------------------
 
 --
 -- Structure de la table `usertype`
 --
 
+DROP TABLE IF EXISTS `usertype`;
 CREATE TABLE `usertype` (
   `id_usertype` bigint(11) NOT NULL,
   `lib_usertype` varchar(50) DEFAULT NULL,
@@ -157,30 +169,13 @@ ALTER TABLE `ligue`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `usertype`
 --
 ALTER TABLE `usertype`
   MODIFY `id_usertype` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `faq`
---
-ALTER TABLE `faq`
-  ADD CONSTRAINT `FK_faq_id_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
-
---
--- Contraintes pour la table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `FK_user_id_ligue` FOREIGN KEY (`id_ligue`) REFERENCES `ligue` (`id_ligue`),
-  ADD CONSTRAINT `FK_user_id_usertype` FOREIGN KEY (`id_usertype`) REFERENCES `usertype` (`id_usertype`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

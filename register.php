@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
       if($pseudolength >= 3) {
    $password = $_POST['password'];
    $passwordhash = password_hash($password,PASSWORD_DEFAULT);
-   $insertsql = $dbh->prepare('INSERT INTO user(pseudo,mdp,mail,id_ligue) VALUES (?,?,?,?)');
+   $insertsql = $dbh->prepare('INSERT INTO user(pseudo,mdp,mail,id_usertype,id_ligue) VALUES (?,?,?,1,?)');
    $insertsql->execute(array($_POST['pseudo'],$passwordhash,$_POST['mail'],$_POST['ligue']));
    header("Location: login.php");     
 }else{
