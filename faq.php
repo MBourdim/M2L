@@ -24,7 +24,7 @@
         <h1>Bienvenue sur le site de la FAQ</h1>
         <br><br>
         <?php
-        if (!isset($_SESSION['pseudo'])) {
+       
             if (isset($_GET['notif'])) {
                 switch ($_GET['notif']) {
                 case 0:
@@ -36,15 +36,19 @@
                 case 2:
                 echo"<h3 class='rouge'>Vous n'avez pas accès à cette page !</h3>";
                 break;
+                case 3:
+                echo"<h3 class='rouge'>Vous n'êtes pas connecté !</h3>";
+                break;
+                case 4:
+                echo"<h3 class='rouge'>Vous n'appartenez pas à cette ligue !</h3>";
+                break;
                 }
             } 
-            else{
-                echo'<h3>Veuillez vous inscrire ou vous connecter pour continuer</h3>';
+
+            if(isset($_SESSION['pseudo'])){
+                echo'<h3>Bienvenue '.$_SESSION['pseudo'].' !</h3>';
             }
-        }
-        else{
-            echo'<h3>Bienvenue '.$_SESSION['pseudo'].' !</h3>';
-        }
+        
         ?>
         <br><br>
         <div class="vertical-menu">

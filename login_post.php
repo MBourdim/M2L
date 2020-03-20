@@ -19,6 +19,9 @@ if (isset($_POST['pseudo']) && isset($_POST['mdp'])) {
             // on ajoute ses infos en tant que variables de session
             $_SESSION['pseudo'] = $pseudo;
             $_SESSION['mdp'] = $mdp;
+            $_SESSION['id'] = $row['id_user'];
+            $_SESSION['droit'] = $row['id_usertype'];
+            $_SESSION['ligue'] = $row['id_ligue'];
             // cette variable indique que l'authentification a réussi
             $authOK = true;
             header('Location:faq.php');

@@ -50,3 +50,4 @@ function db_exehash($dbh, $sql, $params=null)
   }
   return $rows;
 }
+

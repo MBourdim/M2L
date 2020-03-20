@@ -1,14 +1,18 @@
 <?php 
-session_start();
-include('./fonction.inc.php');
-$dbh = connexion();
+  session_start();
+  include('./fonction.inc.php');
+  $dbh = connexion();
 
-if(isset($_POST['submit'])){
-   if(!empty($_POST['question'])){
-   $insertsql = $dbh->prepare('INSERT INTO faq(question) VALUES (?)');
-   $insertsql->execute(array($_POST['question']));
-   $question = $_POST['question'];
-   }
+  if(isset($_POST['submit'])){
+    if(!empty($_POST['question'])){
+    $sql = 'INSERT INTO faq VALUES (null,:question,null,NOW(),null,:id)';
+    $params = array(
+      ':question' => $_POST['question'],
+      ':id' => $_SESSION['id']
+    );
+    db_insert($dbh, $sql, $params);
+    header('Location:list.php?option=0');
+    }
   }
 ?>
 <!DOCTYPE html>
@@ -18,7 +22,7 @@ if(isset($_POST['submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/edit-liste.css">
-    <title>Ajouter des questions FAQ</title>
+    <title>Ajouter une question FAQ</title>
 
     <title>Ajout FAQ</title>
   </head>
@@ -33,8 +37,6 @@ if(isset($_POST['submit'])){
   <li><a href="faq.php">Accueil de la FAQ</a></li>
   <li><a href="list.php">Liste des questions</a></li>
   <li><a href="add.php"class="active">Ajouter une question</a></li>
-  <li><a href="edit.php">Répondre à une question</a></li>
-  <li><a href="delete.php">Supprimer une question</a></li>
 </ul>
 <br><br>
 <br><br>
@@ -45,7 +47,7 @@ if(isset($_POST['submit'])){
 
     <form action="" method="post">
       <div>
-      <p>Question : <br><textarea type="text"name="question" rows="10" placeholder="Reponse"></textarea></p>
+      <p>Question : <br><textarea type="text"name="question" rows="10"></textarea></p>
         </div>
       <br>
       <input type="submit" name="submit" value="Envoyer" />

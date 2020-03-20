@@ -3,14 +3,29 @@ session_start();
 include('./fonction.inc.php');
 $dbh = connexion();
 
+if(isset($_SESSION['droit'])){
+  if($_SESSION['droit'] <> 3){
+    if($_SESSION['droit'] <> 2 && $_SESSION['ligue'] <> 1){
+      header('Location:faq.php?notif=4');
+    }
+  } 
+}
+else{
+  header('Location:faq.php?notif=3');
+}
+
 if(isset($_POST['submit'])){
-   if(!empty($_POST['reponse'])){
-   $insertsql = $dbh->prepare('INSERT INTO faq(reponse) VALUES (?)');
-   $insertsql->execute(array($_POST['reponse']));
-   $question = $_POST['question'];
-   }
-  }
+  $updatesql = 'UPDATE faq SET question=:question,reponse=:reponse,dat_reponse=NOW() WHERE id_faq = :id_faq';
+  $params=array(
+    ':question' => $_POST['question'],
+    ':reponse' => $_POST['reponse'],
+    ':id_faq' => $_GET['id_faq']
+  );
+  db_insert($dbh,$updatesql,$params);
+  header('Location:list.php?option=1');
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,43 +46,26 @@ if(isset($_POST['submit'])){
   <li><a href="faq.php">Accueil de la FAQ</a></li>
   <li><a href="list.php">Liste des questions</a></li>
   <li><a href="add.php">Ajouter une question</a></li>
-  <li><a href="edit.php"class="active">Répondre à une question</a></li>
-  <li><a href="delete.php">Supprimer une question</a></li>
 </ul>
 <br>
 <center>
 <?php
-$sql = "SELECT  pseudo , id_faq , reponse ,question
-FROM faq , user 
-WHERE faq.id_user = user.id_user   ";
-try {   
-    $sth = $dbh->prepare($sql);
-    $sth->execute(); //éxecute
-    $rows = $sth->fetchAll(PDO::FETCH_ASSOC); // fetchall Retourne un tableau contenant toutes les lignes du jeu d'enregistrements
-  } catch (PDOException $ex) {
-   die("Erreur lors de la requête SQL : ".$ex->getMessage());
-  }
-echo "<table>";
- 
-        echo "<tr><th>Questions</th><th>Action</th>"; // affichage de l'entête du tableau
-        foreach ($rows as $row) { // afficher le contenu de la base de donnée 
-            echo "<tr>";
-            echo "<td>".$row['question']."</td>";
-            echo '<td><img src="img/pencil.png" alt="edit"><img src="img/cancel.png" alt="bouton delete"></td>';
-            echo "</tr>";
-        }
-  echo"</table>";
-?>       
-    </center>
+  $sql = "SELECT question, reponse from faq where id_faq = :id_faq";
+  $params = array(
+    ':id_faq' => $_GET['id_faq']
+  );
+  $row=db_exehash($dbh,$sql,$params);
+  $question=$row['question'];
+  $reponse=$row['reponse'];
+?> 
+
 <br><br>
-<center>
-<form action="" method="post">
-      <div>
-      <p>Reponse : <br><textarea type="text"name="question" rows="10" placeholder="Reponse"></textarea></p>
-        </div>
-      <br>
-      <input type="submit" name="submit" value="Envoyer" />
-    </form>      
+  <form action="edit.php?id_faq=<?php echo $_GET['id_faq'];?>" method="post">
+    <p>Question : <br><textarea type="text"name="question" rows="10"><?php echo $question; ?></textarea></p>
+    <p>Réponse : <br><textarea type="text"name="reponse" rows="10"><?php echo $reponse; ?></textarea></p>
+    <br>
+    <input type="submit" name="submit" value="Envoyer" />
+  </form>      
     </center>
 </body>
 </html>
