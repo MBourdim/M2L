@@ -4,41 +4,27 @@ include('./fonction.inc.php');
 $dbh = connexion();
 
 if(isset($_POST['submit'])) {
-   echo 
    $pseudo = htmlspecialchars($_POST['pseudo']);
-   $password = $_POST['password'];
+   $password = sha1($_POST['password']);
    if(!empty($pseudo) AND !empty($password)) {
-      $pseudo = mysqli_real_escape_string($connect,$_POST['pseudo']);
-      $password = mysqli_real_escape_string($connect,$_POST['password']);
-      $query ="SELECT * FROM user WHERE pseudo = '$pseudo'";
-      $result = mysqli_query($connect,$query);
-         if(mysqli_num_rows($result)>0){
-            while($row = mysqli_fetch_array($result)){               //https://www.youtube.com/watch?v=eP6DIY78U74
-            $password_hash = $row['password'];
-            if(password_verify($password,$password_hash)){
-               $requser = $dbh->prepare("SELECT * FROM user WHERE pseudo = ? AND mdp = ?");
-               $requser->execute(array($pseudo, $password));
-               $userexist = $requser->rowCount();
-               if($userexist == 1) {
-                  $userinfo = $requser->fetch();
-                  $_SESSION['id_user'] = $userinfo['id_user'];
-                  $_SESSION['pseudo'] = $userinfo['pseudo'];
-                  $_SESSION['mdp'] = $userinfo['mdp'];
-                  header("Location: faq.php?id_user=".$_SESSION['id_user']);
-               } else {
-                  $erreur = "Mauvais mail ou mot de passe !";
-               }
-            } else {
-               $erreur = "Tous les champs doivent être complétés !";
-            }   
-            }   
-         }
-            
-         }
+      $requser = $dbh->prepare("SELECT * FROM user WHERE pseudo = ? AND mdp = ?");
+      $requser->execute(array($pseudo, $password));
+      $userexist = $requser->rowCount();
+      if($userexist == 1) {
+         $userinfo = $requser->fetch();
+         $_SESSION['id_user'] = $userinfo['id_user'];
+         $_SESSION['pseudo'] = $userinfo['pseudo'];
+         $_SESSION['password'] = $userinfo['password'];
+         $userinfo['id_user'] = $user;
+         header('Location: faq.php?id='.$_SESSION['id_user']);
+      } else {
+         $erreur="Mauvais pseudo ou mot de passe !";
+      }
+   } else {
+      $erreur="Tous les champs doivent être complétés !";
+   }
 }
-     
 ?>
-
 
 <html>
    <head>
