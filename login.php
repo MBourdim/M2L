@@ -30,7 +30,7 @@
             }
         ?>
          <form action="login_post.php" method="post">
-            <label for="nom">Nom :</label>
+            <label for="nom">Pseudo :</label>
             </br>
             <input type="text" name="pseudo" id="nom" required/>
             </br>
