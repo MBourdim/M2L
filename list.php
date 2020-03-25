@@ -62,17 +62,24 @@
   } 
   
   echo "<table>";
-  echo "<tr><th>Num</th><th>Auteur</th><th>Question</th><th>reponse</th><th>Action</th>"; // affichage de l'entête du tableau
-  foreach ($rows as $row) { // afficher le contenu de la base de donnée 
+  echo "<tr><th>Num</th><th>Auteur</th><th>Question</th><th>Réponse</th>";
+  if ($_SESSION['droit'] >= 2) {
+      echo "<th>Action</th>"; // affichage de l'entête du tableau
+      echo "</tr>";
+  }
+  foreach ($rows as $row) { // afficher le contenu de la base de donnée
       echo "<tr>";
-      echo "<td>".$row['id_faq']."</td>"; 
+      echo "<td>".$row['id_faq']."</td>";
       echo "<td>".$row['pseudo']."</td>";
       echo "<td>".$row['question']."</td>";
       echo "<td>".$row['reponse']."</td>";
-      echo '<td><a href="edit.php?id_faq='.$row['id_faq'].'"><img src="img/pencil.png" alt="edit"></a>';
-      echo '<a href="delete.php?id_faq='.$row['id_faq'].'"><img src="img/cancel.png" alt="bouton delete"></a></td>';
+      if ($_SESSION['droit'] >= 2) {
+          echo '<td><a href="edit.php?id_faq='.$row['id_faq'].'"><img src="img/pencil.png" alt="edit"></a>';
+          echo '<a href="delete.php?id_faq='.$row['id_faq'].'"><img src="img/cancel.png" alt="bouton delete"></a></td>';
+      } else {
       echo "</tr>";
-        }
+      }
+    }
   echo"</table>";
 ?>     
 

@@ -5,13 +5,10 @@ $dbh = connexion();
 
 if(isset($_SESSION['droit'])){
   if($_SESSION['droit'] <> 3){
-    if($_SESSION['droit'] <> 2 && $_SESSION['ligue'] <> 1){
-      header('Location:faq.php?notif=4');
+    if($_SESSION ['ligue'] <> 1 || $_SESSION['droit'] <> 2){
+        header('Location:faq.php?notif=2');
     }
-    else{
-      header('Location:faq.php?notif=2');
-    }
-  } 
+  }
 }
 else{
   header('Location:faq.php?notif=3');
