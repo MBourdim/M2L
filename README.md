@@ -23,6 +23,12 @@ On s'inscrit puis on pose des questions sur le sport de la ligue via la page add
 
 ---
 
+## Installation 
+- Télécharger le dossier "M2L" depuis GitHub. 
+- Placer le dossier sur le serveur web.
+- Intégrer la base de données, dans le serveur de base de données, à partir du fichier "m2l.sql" contenu dans le dossier "M2L/db".
+
+---
 ## Taches 
 
 
@@ -47,13 +53,14 @@ On s'inscrit puis on pose des questions sur le sport de la ligue via la page add
 
 - Restructuration de tout le projet : fichiers et dossiers du git , mise en place de toutes les pages html avec le menu.php inclus dans toutes les pages .
 Rédaction de la documentation du projet et commentaire des programmes .
----
-## Team
 
 ### V1.4 20/03/2020
 
-- Site fini, toutes les pages sont opérationnelles.
-Utilisateurs de test
+- Site fini, toutes les pages sont opérationnelles. 
+
+---
+## Team
+
 AxelGGNT 
 
 MatthieuBDG
